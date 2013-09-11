@@ -1,0 +1,43 @@
+@import "imageData";
+
+//colours
+@black: #000000;
+@grey: #555555;
+@white: #ffffff;
+@green: #b0cb1f;
+@orange: #ef7f1a;
+@blue: #008dd2;
+@red: #d28d00;
+@pink: #ff39ff;
+
+// Sizers
+@spacer: 10px;
+@borderWidth: 1px;
+@bodyWidth: 768px;
+@sidebarWidth: 1024px - @bodyWidth - @spacer;
+@bodyMargin: @spacer;
+@bodyPadding: @spacer;
+@roundedRadius: @spacer;
+@imageMargin: floor((@spacer/2)+(@spacer/4));
+
+// Generic layout
+@divider: @borderWidth solid @black;
+@mainFontSize: 0.9em;
+
+// Page items sizes
+@menuItemWidth: 100px;
+@mapSize: (@bodyWidth * 0.4);
+@tooltipWidth: (@bodyWidth * 0.4);
+
+.zeroSurrounds {
+    margin:0px;
+    padding:0px;
+    border:0px;
+}
+
+.roundedCorners(@size:@spacer) {
+    -moz-border-radius: @size;
+    -webkit-border-radius: @size;
+    border-radius: @size;
+    -khtml-border-radius: @size;
+}
