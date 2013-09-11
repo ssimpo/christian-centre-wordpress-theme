@@ -41,3 +41,39 @@
     border-radius: @size;
     -khtml-border-radius: @size;
 }
+
+.opacity(@opacity: 0.5) {
+    -moz-opacity: @opacity;
+    -khtml-opacity: @opacity;
+    -webkit-opacity: @opacity;
+    opacity: @opacity;
+    
+    @opperc: @opacity * 100;
+    -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
+    filter: ~"alpha(opacity=@{opperc})";
+}
+
+.dropShadow(
+    @x:@spacer,
+    @y:@spacer,
+    @blur:@spacer/2,
+    @spread:0px,
+    @colour:@black,
+    @fade:50%
+) {
+    -webkit-box-shadow: @x @y @blur @spread fadeout(@colour,@fade);
+    -moz-box-shadow: @x @y @blur @spread fadeout(@colour,@fade);
+    box-shadow: @x @y @blur @spread fadeout(@colour,@fade);
+}
+
+.transform(...) {
+    -webkit-transform: @arguments;
+    -moz-transform: @arguments;
+    -o-transform: @arguments;
+    -ms-transform: @arguments;
+    transform: @arguments;
+}
+
+.rotation(@deg:5deg) {
+    .transform(rotate(@deg));
+}

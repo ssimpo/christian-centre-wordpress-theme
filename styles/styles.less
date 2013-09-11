@@ -55,10 +55,17 @@ body {
             margin-top: @spacer;
             
             .roundedCorners();
-            background-color: fadeout(@black, 25%);
-            color: @white;   
+            background-color: fadeout(@black, 15%);
+            color: @white;
+            //border: 2px solid @black;
+            
+            .dropShadow(2px,2px);
         }
         
+        &>header{
+            min-height: 180px;
+        }
+    
         &>article {
             min-height: 500px;
         }
