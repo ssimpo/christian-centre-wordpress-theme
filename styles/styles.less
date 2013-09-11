@@ -1,0 +1,81 @@
+@import "variables";
+
+.clear {
+    clear: both;
+    height: 1px;
+    width: 1px;
+}
+
+.left {
+    float: left;
+    margin: 0px;
+    margin-right: @spacer;
+    margin-bottom: @spacer;
+}
+
+.right {
+    float: left;
+    margin: 0px;
+    margin-left: @spacer;
+    margin-bottom: @spacer;
+}
+
+html {
+    width:100%;
+    .zeroSurrounds;
+    text-align:center;
+    height:100%;
+}
+
+h1 {
+    font-size: 1.4em;
+}
+h2 {
+    font-size: 1.2em;
+}
+
+body {
+    .zeroSurrounds;
+    
+    background-color: @green;
+    background-repeat: no-repeat;
+    background-position: center 100px;
+    
+    text-align: left;
+    padding: @spacer;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: @mainFontSize;
+    
+    .main {
+        margin:  auto;
+        width: @bodyWidth;
+        
+        &>header, &>footer, &>article {
+            padding: @spacer;
+            margin-top: @spacer;
+            
+            .roundedCorners();
+            background-color: fadeout(@black, 25%);
+            color: @white;   
+        }
+        
+        &>article {
+            min-height: 500px;
+        }
+    }
+}
+
+body.green {
+    background-color: @green;
+    background-image: @greenPageBackground;
+}
+
+body.orange {
+    background-color: @orange;
+    background-image: @orangePageBackground;
+}
+
+body.blue {
+    background-color: @blue;
+    background-image: @bluePageBackground;
+}
