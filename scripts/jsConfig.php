@@ -23,9 +23,6 @@ var dojoConfig = {
 	"packages": [
 		{"name": "lib", "location": customModulesPath+dojoReleasePath+"lib"},
 		{"name": "simpo", "location": customModulesPath+dojoReleasePath+"simpo"},
-		{"name": "lh", "location": customModulesPath+dojoReleasePath+"rprhag"},
-        {"name": "dojo", "location": customModulesPath+dojoReleasePath+"dojo"},
-        {"name": "dijit", "location": customModulesPath+dojoReleasePath+"dijit"},
-        {"name": "dojox", "location": customModulesPath+dojoReleasePath+"dojox"}
+		{"name": "rprhag", "location": customModulesPath+dojoReleasePath+"rprhag"}
 	]
 };
