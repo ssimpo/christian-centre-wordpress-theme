@@ -6,6 +6,12 @@
  */
 ?>
 <footer>
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
     <?php wp_footer(); ?>
 </footer>
+</div>
+</body>
 </html>
