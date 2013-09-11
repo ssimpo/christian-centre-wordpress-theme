@@ -14,7 +14,5 @@
 <body <?php body_class(array('claro','green')); ?>>
 <div class="main">
 <header>
-	<br /><br /><br /><br />
-    <br /><br /><br /><br />
-    <br /><br /><br /><br />
+	<a href="<?php echo home_url();?>"><img src="<?php echo get_template_directory_uri(); ?>/media/images/logos/tcc-green-inverse.png" width="255" height="117" class="logo" alt="The Christian Centre Logo (Green version)" /></a>
 </header>
