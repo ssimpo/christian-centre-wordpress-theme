@@ -15,7 +15,6 @@
 </div>
 <aside>
     <header></header>
-    HELLO
     <footer></footer>
 </aside>
 

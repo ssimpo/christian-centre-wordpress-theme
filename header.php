@@ -19,13 +19,13 @@
 		<a href="<?php echo home_url();?>" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/media/images/logos/tcc-black.png" width="255" height="117" class="logo" alt="The Christian Centre Logo (Green version)" /></a>
 		<a href="/contactus" class="contact green metro"><div>&nbsp;</div>Contact Us</a>
 		<a href="/events" class="events blue metro"><div>&nbsp;</div>Events</a>
-		<a href="/contactus" class="children orange metro"><div>&nbsp;</div>Children</a>
-		<a href="/contactus" class="students green metro"><div>&nbsp;</div>Students</a>
-		<a href="/contactus" class="podcast orange metro"><div>&nbsp;</div>Podcast</a>
-		<a href="/contactus" class="prayer orange metro"><div>&nbsp;</div>Prayer</a>
-		<a href="/contactus" class="team blue metro"><div>&nbsp;</div>The Team</a>
-		<a href="/contactus" class="vision green metro"><div>&nbsp;</div>Vision</a>
-		<a href="/contactus" class="statement orange metro"><div>&nbsp;</div>Statement of Faith</a>
-		<a href="/contactus" class="history blue metro"><div>&nbsp;</div>History</a>
+		<a href="/children" class="children orange metro"><div>&nbsp;</div>Children</a>
+		<a href="/students" class="students green metro"><div>&nbsp;</div>Students</a>
+		<a href="/podcast" class="podcast orange metro"><div>&nbsp;</div>Podcast</a>
+		<a href="/prayer" class="prayer orange metro"><div>&nbsp;</div>Prayer</a>
+		<a href="/the_team" class="team blue metro"><div>&nbsp;</div>The Team</a>
+		<a href="/vision" class="vision green metro"><div>&nbsp;</div>Vision</a>
+		<a href="/statement_of_faith" class="statement orange metro"><div>&nbsp;</div>Statement of Faith</a>
+		<a href="/history" class="history blue metro"><div>&nbsp;</div>History</a>
 	</nav>
 </header>
