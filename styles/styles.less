@@ -199,3 +199,18 @@ body.blue {
     background-color: @blue;
     background-image: @bluePageBackground;
 }
+
+.dojoLhSlideshow {
+			.zeroSurrounds;
+			
+			position: relative;
+			display: block;
+			float: left;
+			width: 714px;
+			height: 400px;
+			
+			margin-bottom: @spacer;
+			.roundedCorners(floor(@spacer/2));
+			.dropShadow(floor(@spacer/2),floor(@spacer/2));
+			border: @borderWidth solid @black;
+		}
