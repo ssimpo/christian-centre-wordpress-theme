@@ -37,7 +37,7 @@ h2 {
 body {
     .zeroSurrounds;
     
-    background-color: @green;
+    background-color: @grey;
     background-repeat: no-repeat;
     background-position: center 100px;
     
@@ -48,33 +48,21 @@ body {
     
     .main {
         margin:  auto;
-        width: @bodyWidth+250px;
+        width: @bodyWidth+@sidebarWidth+(@spacer*3);
         
         &>div{
             width: @bodyWidth;
             float: left;
         }
         
-        
-        
-        &>div>header, &>div>footer, &>div>article {
-            //width: @bodyWidth;
-        }
-        
         &>div>header, &>div>footer, &>div>article, &>aside {
             padding: @spacer;
             margin-top: @spacer;
-            
-            //.roundedCorners();
-            background-color: fadeout(lighten(@green,25%), 25%);
-            //background-image: url('/wp-content/themes/RPRHAG/media/images/design/background/black75pc.png');
             color: @black;
-            //border: 2px solid @black;
-            //.dropShadow(2px,2px);
         }
         
         &>aside {
-            width: 250px-(@spacer*3);
+            width: @sidebarWidth;
             float: right;
             min-height: 900px;
         }
@@ -94,7 +82,6 @@ body {
                 }
                 
                 a.metro {
-                    
                     width: 80px;
                     height: 30px;
                     float: left;
@@ -115,8 +102,6 @@ body {
                     &.blue {
                         background-color: @blue;
                     }
-                    
-                    
                     
                     div {
                         width: 70px;
@@ -166,9 +151,6 @@ body {
                     &.statement div {
                         background-image: url('/wp-content/themes/RPRHAG/media/images/design/metro/appbar.align.center.png');
                     }
-                    
-                    
-                    
                 }
             }
         }
@@ -180,37 +162,56 @@ body {
 }
 
 body.green {
-    //background-color: @green;
-    background-color: #dddddd;
     background-image: url('/wp-content/themes/RPRHAG/media/images/design/background/singer.png');
-    //background-image: @greenPageBackground;
     
     a {
         color: darken(@green, 25%);
     }
+    
+    .main {
+        &>div>header, &>div>footer, &>div>article, &>aside {
+            background-color: fadeout(lighten(@green,25%),15%);
+        }
+    }
 }
 
 body.orange {
-    background-color: @orange;
     background-image: @orangePageBackground;
+    
+    a {
+        color: darken(@orange, 25%);
+    }
+    
+    .main {
+        &>div>header, &>div>footer, &>div>article, &>aside {
+            background-color: fadeout(lighten(@orange,25%), 25%);
+        }
+    }
 }
 
 body.blue {
-    background-color: @blue;
     background-image: @bluePageBackground;
+    
+    a {
+        color: darken(@blue, 25%);
+    }
+    
+    .main {
+        &>div>header, &>div>footer, &>div>article, &>aside {
+            background-color: fadeout(lighten(@blue,25%), 25%);
+        }
+    }
 }
 
 .dojoLhSlideshow {
-			.zeroSurrounds;
-			
-			position: relative;
-			display: block;
-			float: left;
-			width: 714px;
-			height: 400px;
-			
-			margin-bottom: @spacer;
-			.roundedCorners(floor(@spacer/2));
-			.dropShadow(floor(@spacer/2),floor(@spacer/2));
-			border: @borderWidth solid @black;
-		}
+	.zeroSurrounds;
+	
+    position: relative;
+	display: block;
+	float: left;
+	width: 714px;
+	height: 400px;
+    
+	margin-bottom: @spacer;
+	border: @borderWidth solid @black;
+}
