@@ -13,5 +13,13 @@
     <?php wp_footer(); ?>
 </footer>
 </div>
+<aside>
+    <header></header>
+    HELLO
+    <footer></footer>
+</aside>
+
+</div>
+<br /><br />
 </body>
 </html>
