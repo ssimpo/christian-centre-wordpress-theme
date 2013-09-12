@@ -48,33 +48,146 @@ body {
     
     .main {
         margin:  auto;
-        width: @bodyWidth;
+        width: @bodyWidth+250px;
         
-        &>header, &>footer, &>article {
+        &>div{
+            width: @bodyWidth;
+            float: left;
+        }
+        
+        
+        
+        &>div>header, &>div>footer, &>div>article {
+            //width: @bodyWidth;
+        }
+        
+        &>div>header, &>div>footer, &>div>article, &>aside {
             padding: @spacer;
             margin-top: @spacer;
             
-            .roundedCorners();
-            background-color: fadeout(@black, 15%);
-            color: @white;
+            //.roundedCorners();
+            background-color: fadeout(lighten(@green,25%), 25%);
+            //background-image: url('/wp-content/themes/RPRHAG/media/images/design/background/black75pc.png');
+            color: @black;
             //border: 2px solid @black;
-            
-            .dropShadow(2px,2px);
+            //.dropShadow(2px,2px);
         }
         
-        &>header{
+        &>aside {
+            width: 250px-(@spacer*3);
+            float: right;
+            min-height: 900px;
+        }
+        
+        &>div>header{
             min-height: 180px;
+            
+            nav.metromenu {
+                a {
+                    display: block;
+                    position: relative;
+                }
+                
+                a.logo {
+                    padding-right: @spacer*2;
+                    float: left;
+                }
+                
+                a.metro {
+                    
+                    width: 80px;
+                    height: 30px;
+                    float: left;
+                    margin: @spacer/2;
+                    color: @black;
+                    font-weight: bold;
+                    text-decoration: none;
+                    text-align: center;
+                    font-size: 12px;
+                    padding-top: 50px;
+                    
+                    &.green {
+                        background-color: @green;
+                    }
+                    &.orange {
+                        background-color: @orange;
+                    }
+                    &.blue {
+                        background-color: @blue;
+                    }
+                    
+                    
+                    
+                    div {
+                        width: 70px;
+                        height: 60px;
+                        background-repeat: no-repeat;
+                        top: -15px;
+                        left: 5px;
+                        position: absolute;
+                    }
+                    
+                    &.contact div {
+                        background-image: url('/wp-content/themes/RPRHAG/media/images/design/metro/appbar.email.hardedge.png');
+                    }
+                    
+                    &.podcast div {
+                        background-image: url('/wp-content/themes/RPRHAG/media/images/design/metro/appbar.stream.png');
+                    }
+                    
+                    &.children  div {
+                        background-image: url('/wp-content/themes/RPRHAG/media/images/design/metro/appbar.social.coding4fun.png');
+                    }
+                    
+                    &.events div {
+                        background-image: url('/wp-content/themes/RPRHAG/media/images/design/metro/appbar.calendar.14.png');
+                    }
+                    
+                    &.team div {
+                        background-image: url('/wp-content/themes/RPRHAG/media/images/design/metro/appbar.people.multiple.magnify.png');
+                    }
+                    
+                    &.vision div {
+                        background-image: url('/wp-content/themes/RPRHAG/media/images/design/metro/appbar.home.question.png');
+                    }
+                    
+                    &.students div {
+                        background-image: url('/wp-content/themes/RPRHAG/media/images/design/metro/appbar.smiley.happy.png');
+                    }
+                    
+                     &.prayer div {
+                        background-image: url('/wp-content/themes/RPRHAG/media/images/design/metro/appbar.medical.pulse.png');
+                    }
+                    
+                    &.history div {
+                        background-image: url('/wp-content/themes/RPRHAG/media/images/design/metro/appbar.book.perspective.png');
+                    }
+                    
+                    &.statement div {
+                        background-image: url('/wp-content/themes/RPRHAG/media/images/design/metro/appbar.align.center.png');
+                    }
+                    
+                    
+                    
+                }
+            }
         }
     
-        &>article {
+        &>div>article {
             min-height: 500px;
         }
     }
 }
 
 body.green {
-    background-color: @green;
-    background-image: @greenPageBackground;
+    //background-color: @green;
+    background-color: #dddddd;
+    background-image: url('/wp-content/themes/RPRHAG/media/images/design/background/singer.png');
+    //background-image: @greenPageBackground;
+    
+    a {
+        color: darken(@green, 25%);
+    }
 }
 
 body.orange {
