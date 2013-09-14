@@ -23,16 +23,13 @@
 		<a href="/students" class="students green metro"><div>Students</div></a>
 		<a href="/podcast" class="podcast orange metro"><div>Podcast</div></a>
 		<a href="/prayer" class="prayer orange metro"><div>Prayer</div></a>
-		<a href="/the_team" class="team blue metro"><div>The Team</div></a>
-		<a href="/vision" class="vision green metro"><div>Vision</div></a>
-		<a href="/statement_of_faith" class="statement orange metro"><div>Statement of Faith</div></a>
-		<a href="/history" class="history blue metro"><div>History</div></a>
-		<a href="/students" class="students green metro"><div>Students</div></a>
-		<a href="/podcast" class="podcast orange metro"><div>Podcast</div></a>
-		<a href="/prayer" class="prayer orange metro"><div>Prayer</div></a>
-		<a href="/the_team" class="team blue metro"><div>The Team</div></a>
-		<a href="/vision" class="vision green metro"><div>Vision</div></a>
-		<a href="/statement_of_faith" class="statement orange metro"><div>Statement of Faith</div></a>
-		<a href="/history" class="history blue metro"><div>History</a>
+		<a href="/the_team" class="team blue metro"><div>Our Team</div></a>
+		<a href="/vision" class="vision green metro"><div>Our Vision</div></a>
+		<a href="/statement_of_faith" class="statement orange metro"><div>Our Beliefs</div></a>
+		<a href="/history" class="history blue metro"><div>Our History</div></a>
+		<a href="/christianity" class="christianity green metro"><div>Christianity?</div></a>
+		<a href="/connect_groups" class="connect orange metro"><div>Connect Groups</div></a>
+		<a href="/apostolic_church" class="apostolic orange metro"><div>Apostolic Church</div></a>
+		<a href="/visiting_us" class="visiting green metro"><div>Visiting Us</div></a>
 	</nav>
 </header>
