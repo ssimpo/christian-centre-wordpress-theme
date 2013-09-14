@@ -15,7 +15,7 @@
 <div class="main">
 <div>
 <header>
-	<nav class="metromenu">
+	<nav class="metromenu" data-dojo-type="simpo/widget/expandingDiv">
 		<a href="<?php echo home_url();?>" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/media/images/logos/tcc-black.png" width="255" height="117" class="logo" alt="The Christian Centre Logo (Green version)" /></a>
 		<a href="/contactus" class="contact green metro"><div>&nbsp;</div>Contact Us</a>
 		<a href="/events" class="events blue metro"><div>&nbsp;</div>Events</a>
