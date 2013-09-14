@@ -5,7 +5,8 @@
  *  @version v0.1
  */
 ?>
-<?if ($postSeq == 0){?>
+<?php global $postSeq; ?>
+<?php if ($postSeq === 0){?>
 <div
 	data-dojo-type="simpo/widget/slideshow"
 	data-dojo-props="src:[

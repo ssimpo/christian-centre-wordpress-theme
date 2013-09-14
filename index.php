@@ -8,6 +8,7 @@
 <?php
     get_header();
     $postSeq = 0;
+    ?><div class="articles"><?php
     if ( have_posts() ) :
         while ( have_posts() ) : the_post();
             get_template_part( 'content', get_post_format() );
@@ -16,6 +17,7 @@
     else:
 ?><p><?php _e('Sorry, no posts matched your criteria.'); ?></p><?php
     endif;
+    ?></div><?php
     get_footer();
 ?>
 
