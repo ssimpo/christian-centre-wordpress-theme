@@ -5,6 +5,7 @@
  *  @version v0.1
  */
 ?>
+<?if ($postSeq == 0){?>
 <div
 	data-dojo-type="simpo/widget/slideshow"
 	data-dojo-props="src:[
@@ -21,3 +22,4 @@
 	    themePath+'/media/images/slideshow/Sarah.jpg'
 	], type:'squares', squaresSize:36, interval:2500
 "></div>
+<?php } ?>
