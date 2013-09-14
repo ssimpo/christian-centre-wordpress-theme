@@ -67,6 +67,18 @@ body {
             min-height: 900px;
         }
         
+        &>div>footer>aside {
+            .map {
+                .left;
+                width: @mapSize;
+                height: @mapSize;
+                
+                .simpoMapsGoogleCanvas {
+                    z-index: 1;
+                }
+            }
+        }
+        
         &>div>header{
             min-height: 180px;
             
