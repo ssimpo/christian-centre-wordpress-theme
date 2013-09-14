@@ -13,12 +13,7 @@
     <?php wp_footer(); ?>
 </footer>
 </div>
-<aside>
-    <header></header>
-    <footer></footer>
-</aside>
-
+<?php get_sidebar(); ?>
 </div>
-<br /><br />
 </body>
 </html>
