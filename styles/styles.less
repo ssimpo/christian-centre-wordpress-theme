@@ -64,7 +64,34 @@ body {
         &>aside {
             width: @sidebarWidth;
             float: right;
-            min-height: 900px;
+            
+            .aiwidgetscss {
+                .aiwidget-title {
+                    h3 {
+                        .zeroSurrounds;
+                        font-size: 1em;
+                    }
+                }
+                
+                .imgdisplay {
+                    clear: both;
+                    .zeroSurrounds;
+                    margin-top: @spacer;
+                    border-top: 1px solid @grey;
+                    padding-top: @spacer;
+                    
+                    font-size: 0.8em;
+                    
+                    img {
+                        .left;
+                        margin-bottom: floor(@spacer/2);
+                    }
+                    
+                    .tweetlink {
+                        margin-top: @spacer;
+                    }
+                }
+            }
         }
         
         &>div>footer>aside {
@@ -229,4 +256,19 @@ body.blue {
     
 	margin-bottom: @spacer;
 	border: @borderWidth solid @black;
+}
+
+div.hiddenDiv{
+    visibility:hidden;
+    position:absolute;
+    left:0px;
+    top:0px;
+    height:1px;
+    width:1px;
+    overflow:hidden;
+    z-index: -100;
+}
+
+.simpoExpandingDiv {
+    overflow: hidden;
 }
