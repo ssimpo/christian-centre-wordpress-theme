@@ -27,5 +27,12 @@
 		<a href="/vision" class="vision green metro"><div>&nbsp;</div>Vision</a>
 		<a href="/statement_of_faith" class="statement orange metro"><div>&nbsp;</div>Statement of Faith</a>
 		<a href="/history" class="history blue metro"><div>&nbsp;</div>History</a>
+		<a href="/students" class="students green metro"><div>&nbsp;</div>Students</a>
+		<a href="/podcast" class="podcast orange metro"><div>&nbsp;</div>Podcast</a>
+		<a href="/prayer" class="prayer orange metro"><div>&nbsp;</div>Prayer</a>
+		<a href="/the_team" class="team blue metro"><div>&nbsp;</div>The Team</a>
+		<a href="/vision" class="vision green metro"><div>&nbsp;</div>Vision</a>
+		<a href="/statement_of_faith" class="statement orange metro"><div>&nbsp;</div>Statement of Faith</a>
+		<a href="/history" class="history blue metro"><div>&nbsp;</div>History</a>
 	</nav>
 </header>
