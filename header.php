@@ -11,7 +11,11 @@
     <?php wp_meta(); ?>
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(array('claro','green')); ?>>
+<?php
+	$backgroundColour = get_post_meta(get_the_ID(), 'RPRHAG_background_colour', true);
+    $backgroundColour = ((!$backgroundColour)?"green":$backgroundColour);
+?>
+<body <?php body_class(array('claro',$backgroundColour)); ?>>
 <div class="main">
 <div>
 <header>
