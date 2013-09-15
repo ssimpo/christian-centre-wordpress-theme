@@ -5,6 +5,9 @@
  *  @version v0.1
  */
 add_theme_support('menus');
+register_nav_menu( 'footer', __( 'Footer Menu', 'RPRHAGFooter' ) );
+register_nav_menu( 'metro', __( 'Metro Menu', 'RPRHAGMetro' ) );
+register_nav_menu( 'site', __( 'Site Menu', 'RPRHAGSite' ) );
 
 // Adds RSS feed links to <head> for posts and comments.
 add_theme_support( 'automatic-feed-links' );
