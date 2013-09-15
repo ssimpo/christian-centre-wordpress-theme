@@ -51,7 +51,7 @@ function RPRHAG_get_default_theme_options() {
 			'history'=>'history',
 			'statement'=>'statement',
 			'connect'=>'connect',
-			'apstolic'=>'apstolic',
+			'apostolic'=>'apostolic',
 			'visiting'=>'visiting',
 			'church'=>'church',
 			'christianity'=>'christianity'

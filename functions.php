@@ -20,4 +20,5 @@ require_once( get_template_directory() . '/includes/addThemeOptions.php' );
 require_once( get_template_directory() . '/includes/addMetaFields.php' );
 require_once( get_template_directory() . '/includes/widgetSupport.php' );
 require_once( get_template_directory() . '/includes/enqueue.php' );
+require_once( get_template_directory() . '/includes/metroWalker.php' );
 ?>
