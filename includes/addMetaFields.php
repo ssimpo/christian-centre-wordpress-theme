@@ -5,7 +5,7 @@ add_action( 'save_post', 'RPRHAG_save_post_colourField', 10, 2 );
 function RPRHAG_create_post_colourField() {
 	add_meta_box(
 		'RPRHAG-colour-field-box',
-		'Background Colour',
+		'Theme Options',
 		'RPRHAG_post_meta_colourField_box',
 		'page',
 		'side',
@@ -20,6 +20,13 @@ function RPRHAG_construct_colourPicker($item) {
 	return $html;
 }
 
+function RPRHAG_construct_metroPicker($item) {
+	$html = '<select name="RPRHAG_metro_icon">';
+	$html .= RPRHAG_construct_metroPicker_items($item);
+	$html .= '</select>';
+	return $html;
+}
+
 function RPRHAG_construct_colourPicker_items($item=false) {
     $themeOptions = get_option('RPRHAG_theme_options');
 	
@@ -27,12 +34,31 @@ function RPRHAG_construct_colourPicker_items($item=false) {
 	foreach($themeOptions['metro_colours'] as $name => $colour) {
 		if ($item) {
 			if ($name == $item) {
-				$html .= "<option value='$name' selected='selected'>$name</option>";
+				$html .= "<option value=\"$name\" selected='selected'>".ucfirst($name)."</option>";
 			} else {
-				$html .= "<option value='$name'>$name</option>";
+				$html .= "<option value=\"$name\">".ucfirst($name)."</option>";
 			}
 		} else {
-			$html .= "<option value='$name'>$name</option>";
+			$html .= "<option value=\"$name\">".ucfirst($name)."</option>";
+		}
+	}
+	
+	return $html;
+}
+
+function RPRHAG_construct_metroPicker_items($item=false) {
+    $themeOptions = get_option('RPRHAG_theme_options');
+	
+	$html = '';
+	foreach($themeOptions['metro_icons'] as $name => $icon) {
+		if ($item) {
+			if ($name == $item) {
+				$html .= "<option value=\"$name\" selected='selected'>".ucfirst($name)."</option>";
+			} else {
+				$html .= "<option value=\"$name\">".ucfirst($name)."</option>";
+			}
+		} else {
+			$html .= "<option value=\"$name\">".ucfirst($name)."</option>";
 		}
 	}
 	
@@ -40,13 +66,19 @@ function RPRHAG_construct_colourPicker_items($item=false) {
 }
 
 function RPRHAG_post_meta_colourField_box($object,$box) {?>
- 
 	<p>
 		<label for="RPRHAG_background_colour">Page Colour:</label>
 		<br />
 		<?php
 			$colour = get_post_meta( $object->ID, 'RPRHAG_background_colour', true );
 			echo RPRHAG_construct_colourPicker($colour);
+		?>
+	</p><p>
+		<label for="RPRHAG_metro_icon">Metro Icon:</label>
+		<br />
+		<?php
+			$metroIcon = get_post_meta( $object->ID, 'RPRHAG_metro_icon', true );
+			echo RPRHAG_construct_metroPicker($metroIcon);
 		?>
 	</p>
 <?php }
@@ -61,6 +93,17 @@ function RPRHAG_save_post_colourField( $post_id, $post ) {
 		update_post_meta( $post_id, 'RPRHAG_background_colour', $new_meta_value );
 	} elseif ( '' == $new_meta_value && $meta_value ) {
 		delete_post_meta( $post_id, 'RPRHAG_background_colour', $meta_value );
+	}
+	
+	$meta_value = get_post_meta( $post_id, 'RPRHAG_metro_icon', true );
+	$new_meta_value = stripslashes( $_POST['RPRHAG_metro_icon'] );
+	
+	if ( $new_meta_value && '' == $meta_value ) {
+		add_post_meta( $post_id, 'RPRHAG_metro_icon', $new_meta_value, true );
+	} elseif ( $new_meta_value != $meta_value ) {
+		update_post_meta( $post_id, 'RPRHAG_metro_icon', $new_meta_value );
+	} elseif ( '' == $new_meta_value && $meta_value ) {
+		delete_post_meta( $post_id, 'RPRHAG_metro_icon', $meta_value );
 	}
 }
 ?>
