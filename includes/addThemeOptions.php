@@ -38,6 +38,23 @@ function RPRHAG_get_default_theme_options() {
 			'blue'=>'#ef7f1a',
 			'orange'=>'#008dd2',
 			'pink'=>'#d28d00'
+		),
+		'metro_icons' => array(
+			'contact'=>'contact',
+			'podcast'=>'podcast',
+			'children'=>'children',
+			'events'=>'events',
+			'team'=>'team',
+			'vision'=>'vision',
+			'students'=>'students',
+			'prayer'=>'prayer',
+			'history'=>'history',
+			'statement'=>'statement',
+			'connect'=>'connect',
+			'apstolic'=>'apstolic',
+			'visiting'=>'visiting',
+			'church'=>'church',
+			'christianity'=>'christianity'
 		)
 	);
 	
