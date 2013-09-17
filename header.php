@@ -12,8 +12,16 @@
     <?php wp_head(); ?>
 </head>
 <?php
-	$backgroundColour = get_post_meta(get_the_ID(), 'RPRHAG_background_colour', true);
-    $backgroundColour = ((!$backgroundColour)?"green":$backgroundColour);
+$backgroundColour = false;
+$RPRHAG_category = 0;
+if(is_category()){
+    $RPRHAG_category = get_the_category();
+    $RPRHAG_category = $RPRHAG_category[0]->cat_ID;
+    $backgroundColour = get_term_meta($RPRHAG_category[0]->cat_ID, 'RPRHAG_background_colour', true);
+}else{
+    $backgroundColour = get_post_meta(get_the_ID(), 'RPRHAG_background_colour', true);
+}
+$backgroundColour = ((!$backgroundColour)?"green":$backgroundColour);
 ?>
 <body <?php body_class(array('claro',$backgroundColour)); ?>>
 <div class="main">
