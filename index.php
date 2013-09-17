@@ -11,7 +11,14 @@
     ?><div class="articles"><?php
     if ( have_posts() ) :
         while ( have_posts() ) : the_post();
-            get_template_part( 'content', get_post_format() );
+            if(is_home() || is_front_page()){
+                if(in_category('Homepage')){
+                    get_template_part( 'content', get_post_format() );
+                }
+            }else{
+                get_template_part( 'content', get_post_format() );
+            }
+            
             $postSeq++;
         endwhile;
     else:
@@ -20,4 +27,3 @@
     ?></div><?php
     get_footer();
 ?>
-
