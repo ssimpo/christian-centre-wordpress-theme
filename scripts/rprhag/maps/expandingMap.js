@@ -43,6 +43,7 @@ define([
 		"floatingDiv": null,
 		"hiddenDiv": null,
 		"clearNode": null,
+		"expandToContent":false,
 		
 		postCreate: function(){
 			this._init();
