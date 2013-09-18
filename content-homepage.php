@@ -21,6 +21,7 @@
 	    themePath+'/media/images/slideshow/Mal.jpg',
 	    themePath+'/media/images/slideshow/Reception.jpg',
 	    themePath+'/media/images/slideshow/Sarah.jpg'
-	], type:'squares', squaresSize:36, interval:2500
-"></div>
+	], type:'squares', squaresSize:36, interval:2500"
+	class="simpoSlideshow homepageSlideshow"
+></div>
 <?php } ?>
