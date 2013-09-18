@@ -27,8 +27,10 @@ $backgroundColour = ((!$backgroundColour)?"green":$backgroundColour);
 <div class="main">
 <div>
 <header>
-	<nav class="metromenu" data-dojo-type="simpo/widget/expandingDiv">
-		<a href="<?php echo home_url();?>" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/media/images/logos/tcc-black.png" width="255" height="117" class="logo" alt="The Christian Centre Logo (Green version)" /></a>
+	<nav
+		class="metromenu simpoExpandingDiv"
+		data-dojo-type="simpo/widget/expandingDiv"
+	><a href="<?php echo home_url();?>" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/media/images/logos/tcc-black.png" width="255" height="117" class="logo" alt="The Christian Centre Logo (Green version)" /></a>
 		<?php
 			$metroMenu =  wp_nav_menu(array(
 				'theme_location' => 'metro',
