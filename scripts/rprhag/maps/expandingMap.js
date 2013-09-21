@@ -93,14 +93,34 @@ define([
 			}));
 		},
 		
+		"_directionsDisplay":null,
+		"_directionsService":null,
 		_setDirectionsSubmitAttachPoint: function(){
 			this._submitDirections = registry.byId("googleMapsDirectionSubmit");
 			this._formDirections = registry.byId("googleMapsDirectionForm");
+			this._directionsService = new google.maps.DirectionsService();
+			this._directionsDisplay = new google.maps.DirectionsRenderer();
+			this._directionsDisplay.setMap(this.canvas.map);
 			on(this._submitDirections, "click", lang.hitch(this,this._getDirections));
 		},
 		
 		_getDirections: function(){
 			console.log(this._formDirections.get("value"));
+			
+			var value = this._formDirections.get("value");
+			var request = {
+				origin:value.mapFromPostcode,
+				destination:value.mapToPostcode,
+				travelMode: google.maps.DirectionsTravelMode.DRIVING
+			};
+			
+			this._directionsService.route(
+				request, lang.hitch(this, function(response, status) {
+					if (status == google.maps.DirectionsStatus.OK) {
+						this._directionsDisplay.setDirections(response);
+					}
+				}
+			));
 		},
 		
 		_initHoverCaptures: function(){
