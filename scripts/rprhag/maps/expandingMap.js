@@ -2,6 +2,7 @@ define([
     "dojo/_base/declare",
 	"dijit/_WidgetBase",
 	"dijit/_TemplatedMixin",
+	"dojo/parser",
 	"dojo/i18n",
 	"dojo/i18n!./nls/expandingMap",
 	"dojo/text!./views/expandingMap.html",
@@ -18,8 +19,9 @@ define([
 	"dojo/_base/array",
 	"dojo/dom-attr"
 ], function(
-    declare, _widget, _templated, i18n, strings, template, flaotingDiv, expandingDiv,
-	mapCanvas, domConstr, lang, domStyle, on, $, fx, fxx, array, domAttr
+    declare, _widget, _templated, parser, i18n, strings,
+	template, floatingDiv, expandingDiv, mapCanvas, domConstr, lang, domStyle,
+	on, $, fx, fxx, array, domAttr
 ){
     "use strict";
     
@@ -76,8 +78,9 @@ define([
 					"padding": "5px",
 					"zIndex": 99
 				},
-				"innerHTML": flaotingDiv
+				"innerHTML": floatingDiv
 			}, this.hiddenNode);
+			parser.parse(this.floatingDiv);
 			this._findClearNode();
 		},
 		
