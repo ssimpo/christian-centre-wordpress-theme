@@ -123,6 +123,7 @@ define([
 					if (status == google.maps.DirectionsStatus.OK) {
 						this._directionsDisplay.setDirections(response);
 						this._dialog.show();
+						this._dialog.resize();
 					}
 				}
 			));
