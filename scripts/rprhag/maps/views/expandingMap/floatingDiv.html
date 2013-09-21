@@ -1,15 +1,26 @@
-<form>
+<form class="mapDirectionsForm">
     <table>
-        <caption>Get directions:</caption>
+        <caption>Directions:</caption>
         <tr>
-            <th>From Postcode:</th>
-            <td><input type="text" /></td>
+            <th><label for="mapFromPostcode">Your Postcode</label>:</th>
+            <th><label for="mapToPostcode">Our Postcode</label>:</th>
         </tr><tr>
-            <th>To Postcode:</th>
-            <td><input type="text" /></td>
+            <td><input
+                id="mapFromPostcode" name="mapFromPostcode"
+                type="text" data-dojo-type="dijit/form/TextBox"
+                style="width:95%" placeholder="Postcode here..."
+            /></td>
+            <td> <input
+                id="mapToPostcode" name="mapToPostcode"
+                type="text" data-dojo-type="dijit/form/TextBox"
+                style="width:95%" value="TS2 1AD"
+            /></td>
         </tr><tr>
-            <td colspan="2"><button>Submit</button></td>
+            <td colspan="2">
+                <button data-dojo-type="dijit/form/Button">Submit</button>
+            </td>
         </tr>
     </table>
-    <p style="text-align:center;color:white;font-size:1.2em" id="test"><i>Move mouse out of map to reduce size again</i></p>
+    
+    <br /><p class="mapDirectionFormNotice"><i>Move mouse out of map to<br />reduce size again</i></p>
 </form>

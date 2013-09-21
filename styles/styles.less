@@ -1,4 +1,5 @@
 @import "variables";
+@import "dbootstrap.css";
 
 .clear {
     clear: both;
@@ -162,6 +163,38 @@ body {
     }
 }
 
+.mapDirectionsForm {
+    border: @borderWidth solid @black;
+    padding: @spacer;
+    
+    table {
+        caption, th {
+            font-weight: bold;
+            text-align: left;
+            margin-bottom: @spacer;
+        }
+        
+        caption {
+            font-size: 1.3em;
+        }
+        
+        td, th {
+            font-size:0.8em;
+            vertical-align: bottom;
+        }
+    }
+    
+        
+    font-size:0.8em;
+    
+    .mapDirectionFormNotice {
+        color: @black;
+        font-weight: bold;
+        text-align: center;
+        font-size:1.2em;
+    }
+}
+
 body.green {
     background-image: url('/wp-content/themes/RPRHAG/media/images/design/background/singer.png');
     
@@ -174,6 +207,10 @@ body.green {
             background-color: fadeout(lighten(@green,25%),15%);
         }
     }
+    
+    .mapDirectionsForm {
+        background-color: fadeout(lighten(@green,25%),15%);
+    }
 }
 
 body.orange {
@@ -185,8 +222,12 @@ body.orange {
     
     .main {
         &>div>header, &>div>footer, &>div>div.articles, &>aside {
-            background-color: fadeout(lighten(@orange,25%), 25%);
+            background-color: fadeout(lighten(@orange,25%),15%);
         }
+    }
+    
+    .mapDirectionsForm {
+        background-color: fadeout(lighten(@orange,25%),15%);
     }
 }
 
@@ -199,8 +240,12 @@ body.blue {
     
     .main {
         &>div>header, &>div>footer, &>div>div.articles, &>aside {
-            background-color: fadeout(lighten(@blue,25%), 25%);
+            background-color: fadeout(lighten(@blue,25%),15%);
         }
+    }
+    
+    .mapDirectionsForm {
+        background-color: fadeout(lighten(@blue,25%),15%);
     }
 }
 
