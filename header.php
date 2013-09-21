@@ -23,7 +23,7 @@ if(is_category()){
 }
 $backgroundColour = ((!$backgroundColour)?"green":$backgroundColour);
 ?>
-<body <?php body_class(array('claro',$backgroundColour)); ?>>
+<body <?php body_class(array('dbootstrap',$backgroundColour)); ?>>
 <div class="main">
 <div>
 <header>
