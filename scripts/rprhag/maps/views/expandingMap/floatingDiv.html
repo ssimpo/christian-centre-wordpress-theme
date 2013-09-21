@@ -3,21 +3,15 @@
     data-dojo-type="dijit/form/Form"
     id="googleMapsDirectionForm"
 >
-    <table>
+    <table style="width:95%">
         <caption>Directions:</caption>
         <tr>
             <th><label for="mapFromPostcode">Your Postcode</label>:</th>
-            <th><label for="mapToPostcode">Our Postcode</label>:</th>
         </tr><tr>
             <td><input
                 id="mapFromPostcode" name="mapFromPostcode"
                 type="text" data-dojo-type="dijit/form/TextBox"
-                style="width:95%" placeholder="Postcode here..."
-            /></td>
-            <td> <input
-                id="mapToPostcode" name="mapToPostcode"
-                type="text" data-dojo-type="dijit/form/TextBox"
-                style="width:95%" value="TS2 1AD"
+                style="width:95%" placeholder="Enter your postcode here..."
             /></td>
         </tr><tr>
             <td colspan="2">
@@ -36,5 +30,18 @@
         data-dojo-props="title:'Directions to our Sunday Service'"
         id="googleMapsDirectionDialog"
         class="mapDirectionDialog"
-    ><div id="googleMapsDirectionDialogContent"></div></div>
+    >
+        <button
+            id="googleMapsDirectionDialogPrintButton"
+            class="primary"
+            data-dojo-type="dijit/form/Button"
+            style="margin:10px;"
+        >Print</button><br />
+        <div id="googleMapsDirectionDialogContent"></div>
+    </div>
+    
+    <iframe
+        id="googleMapsDirectionDialogPrintFrame" src="#"
+        style="width:0px; height:0px; border: 0px;"
+    ></iframe>
 </form>

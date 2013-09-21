@@ -97,14 +97,26 @@ define([
 			}));
 		},
 		
+		"_printDirections":null,
+		"_printFrame":null,
 		_setDirectionsSubmitAttachPoint: function(){
 			this._submitDirections = registry.byId("googleMapsDirectionSubmit");
 			this._formDirections = registry.byId("googleMapsDirectionForm");
 			this._dialog = registry.byId("googleMapsDirectionDialog");
+			this._printDirections = registry.byId("googleMapsDirectionDialogPrintButton");
+			this._printFrame = $("#googleMapsDirectionDialogPrintFrame")[0];
+			
+			on(this._printDirections, "click", lang.hitch(this, function(){
+				var oDoc = (this._printFrame .contentWindow || this._printFrame .contentDocument);
+				if (oDoc.document) oDoc = oDoc.document;
+				oDoc.innerHTML = "";
+				
+				oDoc.write("<html><head><title>Directions to The Christian Centre, Middlesbrough</title></head><body>"+$('#googleMapsDirectionDialogContent')[0].innerHTML+ '<script type="text/javascript">window.print()</script></body></html>');
+			}));
 			
 			this._directionsService = new google.maps.DirectionsService();
 			this._directionsDisplay = new google.maps.DirectionsRenderer();
-			this._directionsDisplay.setMap(this.canvas.map);
+			//this._directionsDisplay.setMap(this.canvas.map);
 			this._directionsDisplay.setPanel($('#googleMapsDirectionDialogContent')[0]);
 			
 			on(this._submitDirections, "click", lang.hitch(this,this._getDirections));
@@ -114,7 +126,7 @@ define([
 			var value = this._formDirections.get("value");
 			var request = {
 				origin:value.mapFromPostcode,
-				destination:value.mapToPostcode,
+				destination:"TS2 1AD",
 				travelMode: google.maps.DirectionsTravelMode.DRIVING
 			};
 			
