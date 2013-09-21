@@ -3,6 +3,7 @@ define([
 	"dijit/_WidgetBase",
 	"dijit/_TemplatedMixin",
 	"dojo/parser",
+	"dijit/registry",
 	"dojo/i18n",
 	"dojo/i18n!./nls/expandingMap",
 	"dojo/text!./views/expandingMap.html",
@@ -19,7 +20,7 @@ define([
 	"dojo/_base/array",
 	"dojo/dom-attr"
 ], function(
-    declare, _widget, _templated, parser, i18n, strings,
+    declare, _widget, _templated, parser, registry, i18n, strings,
 	template, floatingDiv, expandingDiv, mapCanvas, domConstr, lang, domStyle,
 	on, $, fx, fxx, array, domAttr
 ){
@@ -39,6 +40,8 @@ define([
 		"_resizingCount": 0,
 		"_resizingFactor": 5,
 		"_centre": null,
+		"_submitDirections": null,
+		"_formDirections": null,
 		"scroll": true,
 		"useAvail": true,
 		"availMargin": 50,
@@ -80,8 +83,24 @@ define([
 				},
 				"innerHTML": floatingDiv
 			}, this.hiddenNode);
-			parser.parse(this.floatingDiv);
+			this._parseFloatingPlane();
 			this._findClearNode();
+		},
+		
+		_parseFloatingPlane: function(node){
+			parser.parse(this.floatingDiv).then(lang.hitch(this, function(){
+				this._setDirectionsSubmitAttachPoint();
+			}));
+		},
+		
+		_setDirectionsSubmitAttachPoint: function(){
+			this._submitDirections = registry.byId("googleMapsDirectionSubmit");
+			this._formDirections = registry.byId("googleMapsDirectionForm");
+			on(this._submitDirections, "click", lang.hitch(this,this._getDirections));
+		},
+		
+		_getDirections: function(){
+			console.log(this._formDirections.get("value"));
 		},
 		
 		_initHoverCaptures: function(){
