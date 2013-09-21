@@ -18,11 +18,12 @@ define([
 	"dojo/_base/fx",
 	"dojo/fx",
 	"dojo/_base/array",
-	"dojo/dom-attr"
+	"dojo/dom-attr",
+	"dojo/_base/window"
 ], function(
     declare, _widget, _templated, parser, registry, i18n, strings,
 	template, floatingDiv, expandingDiv, mapCanvas, domConstr, lang, domStyle,
-	on, $, fx, fxx, array, domAttr
+	on, $, fx, fxx, array, domAttr, win
 ){
     "use strict";
     
@@ -53,6 +54,8 @@ define([
 		"_directionsService":null,
 		"_marker":null,
 		"_dialog": null,
+		"_printDirections":null,
+		"_printFrame":null,
 		
 		postCreate: function(){
 			this._init();
@@ -93,33 +96,51 @@ define([
 		
 		_parseFloatingPlane: function(node){
 			parser.parse(this.floatingDiv).then(lang.hitch(this, function(){
-				this._setDirectionsSubmitAttachPoint();
+				this._setFloatingPlaneAttachPoints();
+				this._setFloatingPlaneEvents();
+				this._setGoogleDirectionsAttachPoints();
 			}));
 		},
 		
-		"_printDirections":null,
-		"_printFrame":null,
-		_setDirectionsSubmitAttachPoint: function(){
+		_setFloatingPlaneEvents: function(){
+			on(this._printDirections, "click", lang.hitch(this, function(){
+				this._printDiv($('#googleMapsDirectionDialogContent')[0]);
+			}));
+			on(this._submitDirections, "click", lang.hitch(this,this._getDirections));
+		},
+		
+		_setFloatingPlaneAttachPoints: function(){
 			this._submitDirections = registry.byId("googleMapsDirectionSubmit");
 			this._formDirections = registry.byId("googleMapsDirectionForm");
 			this._dialog = registry.byId("googleMapsDirectionDialog");
 			this._printDirections = registry.byId("googleMapsDirectionDialogPrintButton");
-			this._printFrame = $("#googleMapsDirectionDialogPrintFrame")[0];
-			
-			on(this._printDirections, "click", lang.hitch(this, function(){
-				var oDoc = (this._printFrame .contentWindow || this._printFrame .contentDocument);
-				if (oDoc.document) oDoc = oDoc.document;
-				oDoc.innerHTML = "";
-				
-				oDoc.write("<html><head><title>Directions to The Christian Centre, Middlesbrough</title></head><body>"+$('#googleMapsDirectionDialogContent')[0].innerHTML+ '<script type="text/javascript">window.print()</script></body></html>');
-			}));
-			
+		},
+		
+		_setGoogleDirectionsAttachPoints: function(){
 			this._directionsService = new google.maps.DirectionsService();
 			this._directionsDisplay = new google.maps.DirectionsRenderer();
 			//this._directionsDisplay.setMap(this.canvas.map);
 			this._directionsDisplay.setPanel($('#googleMapsDirectionDialogContent')[0]);
-			
-			on(this._submitDirections, "click", lang.hitch(this,this._getDirections));
+		},
+		
+		_printDiv: function(div){
+			this._createPrintIframe();
+			var oDoc = (this._printFrame.contentWindow || this._printFrame.contentDocument);
+			if(oDoc.document){oDoc = oDoc.document;}
+			oDoc.write("<html><head><title>Directions to The Christian Centre, Middlesbrough</title></head><body>"+domAttr.get(div, "innerHTML")+ '<script type="text/javascript">window.print()</script></body></html>');
+		},
+		
+		_createPrintIframe: function(){
+			if(this._printFrame !== null){
+				domConstr.destroy(this._printFrame);
+			}
+			this._printFrame = domConstr.create("iframe", {
+				"style": {
+					"height": "0px",
+					"width": "0px",
+					"borderWidth": "0px"
+				}
+			}, win.body());
 		},
 		
 		_getDirections: function(){
