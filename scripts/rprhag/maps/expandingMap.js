@@ -107,6 +107,7 @@ define([
 				this._printDiv($('#googleMapsDirectionDialogContent')[0]);
 			}));
 			on(this._submitDirections, "click", lang.hitch(this,this._getDirections));
+			on(this._formDirections, "submit", lang.hitch(this,this._getDirections));
 		},
 		
 		_setFloatingPlaneAttachPoints: function(){
@@ -160,6 +161,8 @@ define([
 					}
 				}
 			));
+			
+			return false;
 		},
 		
 		_initHoverCaptures: function(){
@@ -177,6 +180,7 @@ define([
 			domConstr.place(this.floatingDiv, this.canvas.domNode, "first");
 			domStyle.set(this.floatingDiv,"right","40px");
 			domStyle.set(this.floatingDiv,"top","40px");
+			this._dialog.resize();
 		},
 		
 		mapContracted: function(){
@@ -185,6 +189,7 @@ define([
 			this._recentreMap();
 			domConstr.place(this.floatingDiv, this.hiddenNode);
 			this._restoreParentContent();
+			this._dialog.resize();
 		},
 		
 		mapResizing: function(evt){
