@@ -30,9 +30,11 @@ html {
 
 h1 {
     font-size: 1.4em;
+    line-height: 1.4em;
 }
 h2 {
     font-size: 1.2em;
+    line-height: 1.2em;
 }
 
 body {
@@ -95,15 +97,26 @@ body {
             }
         }
         
-        &>div>footer>aside {
-            .map {
-                .left;
-                width: @mapSize;
-                height: @mapSize;
-                border: 1px solid @black;
+        &>div>footer {
+            font-size: 0.9em;
+            
+            aside {
+                .map {
+                    position: relative;
+                    .left;
+                    width: @mapSize;
+                    height: @mapSize;
+                    border: 1px solid @black;
                 
-                .simpoMapsGoogleCanvas {
-                    z-index: 1;
+                    .simpoMapsGoogleCanvas {
+                        z-index: 1;
+                    }
+                }
+                
+                .find-us-block {
+                    .zeroSurrounds;
+                    margin-top: @spacer;
+                    float: left;
                 }
             }
         }
