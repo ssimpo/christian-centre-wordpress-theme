@@ -29,18 +29,21 @@
                         $postSeq++;
                     }
                 } elseif ($postType === 'event') {
-                    $isInHompageCategory = false;
                     $categories = get_the_terms(get_the_ID(), 'event-category');
-                    foreach ($categories as $category) {
-                        if($category->name === 'Homepage') {
-                            $isInHompageCategory = true;
+                    if ($categories) {
+                        $isInHompageCategory = false;
+                        
+                        foreach ($categories as $category) {
+                            if($category->name === 'Homepage') {
+                                $isInHompageCategory = true;
+                            }
                         }
-                    }
-                    
-                    if ($isInHompageCategory) {
-                        get_template_part( 'content', $postType );
-                        echo get_post_format();
-                        $postSeq++;
+                        
+                        if ($isInHompageCategory) {
+                            get_template_part( 'content', $postType );
+                            echo get_post_format();
+                            $postSeq++;
+                        }
                     }
                 }
             }else{
