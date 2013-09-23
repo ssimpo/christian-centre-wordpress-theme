@@ -4,6 +4,18 @@
  *  @author Stephen Simpson <me@simpo.org>
  *  @version v0.1
  */
+if(!function_exists('console')){
+  function console( $message ) {
+    if( WP_DEBUG === true ){
+      if( is_array( $message ) || is_object( $message ) ){
+        error_log( print_r( $message, true ) );
+      } else {
+        error_log( $message );
+      }
+    }
+  }
+}
+
 add_theme_support('menus');
 register_nav_menu( 'footer', __( 'Footer Menu', 'RPRHAGFooter' ) );
 register_nav_menu( 'metro', __( 'Metro Menu', 'RPRHAGMetro' ) );
