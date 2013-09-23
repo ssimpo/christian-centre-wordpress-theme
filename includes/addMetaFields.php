@@ -16,6 +16,14 @@ function RPRHAG_create_post_colourField() {
 		'side',
 		'high'
 	);
+	add_meta_box(
+		'RPRHAG-colour-field-box',
+		'Theme Options',
+		'RPRHAG_post_meta_colourField_box',
+		'post',
+		'side',
+		'high'
+	);
 }
 
 function RPRHAG_add_category_colourField($tag) {
@@ -67,14 +75,14 @@ function RPRHAG_edit_category_colourField($tag) {
 }
 
 function RPRHAG_construct_colourPicker($item) {
-	$html = '<select name="RPRHAG_background_colour">';
+	$html = '<select name="RPRHAG_background_colour" id="RPRHAG_background_colour">';
 	$html .= RPRHAG_construct_colourPicker_items($item);
 	$html .= '</select>';
 	return $html;
 }
 
 function RPRHAG_construct_metroPicker($item) {
-	$html = '<select name="RPRHAG_metro_icon">';
+	$html = '<select name="RPRHAG_metro_icon" id="RPRHAG_metro_icon">';
 	$html .= RPRHAG_construct_metroPicker_items($item);
 	$html .= '</select>';
 	return $html;
@@ -133,54 +141,53 @@ function RPRHAG_post_meta_colourField_box($object,$box) {?>
 			$metroIcon = get_post_meta( $object->ID, 'RPRHAG_metro_icon', true );
 			echo RPRHAG_construct_metroPicker($metroIcon);
 		?>
+	</p><p>
+		<?php
+			$order = get_post_meta( $object->ID, 'RPRHAG_post_order', true );
+			if($order == ""){
+				$order = 0;
+			}
+		?>
+		<label for="RPRHAG_post_order">Post Order:</label>
+		<br />
+		<input type="number" cass="postform" name="RPRHAG_post_order" id="RPRHAG_post_order" value="<?php echo $order; ?>" style="width:65px" />
 	</p>
 <?php }
 
-function RPRHAG_save_category_colourField( $post_id) {
-	$meta_value = get_term_meta( $post_id, 'RPRHAG_background_colour', true );
-	$new_meta_value = stripslashes( $_POST['RPRHAG_background_colour'] );
+function RPRHAG_save_term_meta_field( $post_id, $fieldName) {
+	$meta_value = get_term_meta( $post_id, $fieldName, true );
+	$new_meta_value = stripslashes( $_POST[$fieldName] );
 
 	if ( $new_meta_value && '' == $meta_value ) {
-		add_term_meta( $post_id, 'RPRHAG_background_colour', $new_meta_value, true );
+		add_term_meta( $post_id, $fieldName, $new_meta_value, true );
 	} elseif ( $new_meta_value != $meta_value ) {
-		update_term_meta( $post_id, 'RPRHAG_background_colour', $new_meta_value );
+		update_term_meta( $post_id, $fieldName, $new_meta_value );
 	} elseif ( '' == $new_meta_value && $meta_value ) {
-		delete_term_meta( $post_id, 'RPRHAG_background_colour', $meta_value );
-	}
-	
-	$meta_value = get_term_meta( $post_id, 'RPRHAG_metro_icon', true );
-	$new_meta_value = stripslashes( $_POST['RPRHAG_metro_icon'] );
-
-	if ( $new_meta_value && '' == $meta_value ) {
-		add_term_meta( $post_id, 'RPRHAG_metro_icon', $new_meta_value, true );
-	} elseif ( $new_meta_value != $meta_value ) {
-		update_term_meta( $post_id, 'RPRHAG_metro_icon', $new_meta_value );
-	} elseif ( '' == $new_meta_value && $meta_value ) {
-		delete_term_meta( $post_id, 'RPRHAG_metro_icon', $meta_value );
+		delete_term_meta( $post_id, $fieldName, $meta_value );
 	}
 }
 
-function RPRHAG_save_post_colourField( $post_id, $post ) {
-	$meta_value = get_post_meta( $post_id, 'RPRHAG_background_colour', true );
-	$new_meta_value = stripslashes( $_POST['RPRHAG_background_colour'] );
+function RPRHAG_save_post_meta_field( $post_id, $fieldName) {
+	$meta_value = get_post_meta( $post_id, $fieldName, true );
+	$new_meta_value = stripslashes( $_POST[$fieldName] );
 
 	if ( $new_meta_value && '' == $meta_value ) {
-		add_post_meta( $post_id, 'RPRHAG_background_colour', $new_meta_value, true );
+		add_post_meta( $post_id, $fieldName, $new_meta_value, true );
 	} elseif ( $new_meta_value != $meta_value ) {
-		update_post_meta( $post_id, 'RPRHAG_background_colour', $new_meta_value );
+		update_post_meta( $post_id, $fieldName, $new_meta_value );
 	} elseif ( '' == $new_meta_value && $meta_value ) {
-		delete_post_meta( $post_id, 'RPRHAG_background_colour', $meta_value );
+		delete_post_meta( $post_id, $fieldName, $meta_value );
 	}
-	
-	$meta_value = get_post_meta( $post_id, 'RPRHAG_metro_icon', true );
-	$new_meta_value = stripslashes( $_POST['RPRHAG_metro_icon'] );
-	
-	if ( $new_meta_value && '' == $meta_value ) {
-		add_post_meta( $post_id, 'RPRHAG_metro_icon', $new_meta_value, true );
-	} elseif ( $new_meta_value != $meta_value ) {
-		update_post_meta( $post_id, 'RPRHAG_metro_icon', $new_meta_value );
-	} elseif ( '' == $new_meta_value && $meta_value ) {
-		delete_post_meta( $post_id, 'RPRHAG_metro_icon', $meta_value );
-	}
+}
+
+function RPRHAG_save_category_colourField( $post_id) {
+	RPRHAG_save_term_meta_field( $post_id, 'RPRHAG_background_colour');
+	RPRHAG_save_term_meta_field( $post_id, 'RPRHAG_metro_icon');
+}
+
+function RPRHAG_save_post_colourField( $post_id, $post ) {
+	RPRHAG_save_post_meta_field( $post_id, 'RPRHAG_background_colour');
+	RPRHAG_save_post_meta_field( $post_id, 'RPRHAG_metro_icon');
+	RPRHAG_save_post_meta_field( $post_id, 'RPRHAG_post_order');
 }
 ?>
