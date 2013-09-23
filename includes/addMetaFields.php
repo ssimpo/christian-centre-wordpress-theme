@@ -24,6 +24,14 @@ function RPRHAG_create_post_colourField() {
 		'side',
 		'high'
 	);
+	add_meta_box(
+		'RPRHAG-colour-field-box',
+		'Theme Options',
+		'RPRHAG_post_meta_colourField_box',
+		'event',
+		'side',
+		'high'
+	);
 }
 
 function RPRHAG_add_category_colourField($tag) {
@@ -155,28 +163,32 @@ function RPRHAG_post_meta_colourField_box($object,$box) {?>
 <?php }
 
 function RPRHAG_save_term_meta_field( $post_id, $fieldName) {
-	$meta_value = get_term_meta( $post_id, $fieldName, true );
-	$new_meta_value = stripslashes( $_POST[$fieldName] );
+	if (isset($_POST[$fieldName])){
+		$meta_value = get_term_meta( $post_id, $fieldName, true );
+		$new_meta_value = stripslashes( $_POST[$fieldName] );
 
-	if ( $new_meta_value && '' == $meta_value ) {
-		add_term_meta( $post_id, $fieldName, $new_meta_value, true );
-	} elseif ( $new_meta_value != $meta_value ) {
-		update_term_meta( $post_id, $fieldName, $new_meta_value );
-	} elseif ( '' == $new_meta_value && $meta_value ) {
-		delete_term_meta( $post_id, $fieldName, $meta_value );
+		if ( $new_meta_value && '' == $meta_value ) {
+			add_term_meta( $post_id, $fieldName, $new_meta_value, true );
+		} elseif ( $new_meta_value != $meta_value ) {
+			update_term_meta( $post_id, $fieldName, $new_meta_value );
+		} elseif ( '' == $new_meta_value && $meta_value ) {
+			delete_term_meta( $post_id, $fieldName, $meta_value );
+		}
 	}
 }
 
 function RPRHAG_save_post_meta_field( $post_id, $fieldName) {
-	$meta_value = get_post_meta( $post_id, $fieldName, true );
-	$new_meta_value = stripslashes( $_POST[$fieldName] );
+	if (isset($_POST[$fieldName])){
+		$meta_value = get_post_meta( $post_id, $fieldName, true );
+		$new_meta_value = stripslashes( $_POST[$fieldName] );
 
-	if ( $new_meta_value && '' == $meta_value ) {
-		add_post_meta( $post_id, $fieldName, $new_meta_value, true );
-	} elseif ( $new_meta_value != $meta_value ) {
-		update_post_meta( $post_id, $fieldName, $new_meta_value );
-	} elseif ( '' == $new_meta_value && $meta_value ) {
-		delete_post_meta( $post_id, $fieldName, $meta_value );
+		if ( $new_meta_value && '' == $meta_value ) {
+			add_post_meta( $post_id, $fieldName, $new_meta_value, true );
+		} elseif ( $new_meta_value != $meta_value ) {
+			update_post_meta( $post_id, $fieldName, $new_meta_value );
+		} elseif ( '' == $new_meta_value && $meta_value ) {
+			delete_post_meta( $post_id, $fieldName, $meta_value );
+		}
 	}
 }
 

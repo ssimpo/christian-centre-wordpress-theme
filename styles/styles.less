@@ -31,7 +31,9 @@ html {
 h1 {
     font-size: 1.4em;
     line-height: 1.4em;
+    margin-bottom: @spacer;
 }
+
 h2 {
     font-size: 1.2em;
     line-height: 1.2em;
@@ -62,6 +64,21 @@ body {
             padding: @spacer;
             margin-top: @spacer;
             color: @black;
+        }
+        
+        &>div>div.articles article {
+            margin-bottom: @spacer*2;
+            
+            h1.event-date-title {
+                margin-bottom: 0px;
+            }
+            
+            p.event-date-subtitle {
+                .zeroSurrounds;
+                font-weight: bold;
+                font-size: 0.7em;
+                margin-bottom: @spacer;
+            }
         }
         
         &>aside {
