@@ -4,16 +4,29 @@
  *  @author Stephen Simpson <me@simpo.org>
  *  @version v0.1
  */
+
+$RPRHAG_console_messages = array();
+
 if(!function_exists('console')){
-  function console( $message ) {
-    if( WP_DEBUG === true ){
-      if( is_array( $message ) || is_object( $message ) ){
-        error_log( print_r( $message, true ) );
-      } else {
-        error_log( $message );
-      }
-    }
-  }
+	function RPRHAG_output_console_messages(){
+		global $RPRHAG_console_messages;
+		
+		if (count($RPRHAG_console_messages) > 0) {
+			echo '<script type="text/javascript">';
+			foreach($RPRHAG_console_messages as $message){
+				echo "console.log(JSON.parse('".json_encode($message)."'));";
+			}
+		echo '</script>';
+		}
+	}
+	
+	add_action('wp_footer', 'RPRHAG_output_console_messages', 1);
+	
+	function console( $message ) {
+		global $RPRHAG_console_messages;
+		
+		array_push($RPRHAG_console_messages, $message);
+	}
 }
 
 add_theme_support('menus');
