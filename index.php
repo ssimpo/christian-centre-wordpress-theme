@@ -22,12 +22,12 @@
             if(is_home() || is_front_page()){
                 if(in_category('Homepage')){
                     get_template_part( 'content', get_post_format() );
+                    $postSeq++;
                 }
             }else{
                 get_template_part( 'content', get_post_format() );
+                $postSeq++;
             }
-            
-            $postSeq++;
         endwhile;
     else:
 ?><p><?php _e('Sorry, no posts matched your criteria.'); ?></p><?php
