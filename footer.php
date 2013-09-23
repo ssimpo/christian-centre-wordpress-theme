@@ -11,6 +11,7 @@
 			data-dojo-type="rprhag/maps/expandingMap"
 			class="map"
 		></div>
+        <div style="height:5px;line-height: 5px;">&nbsp;</div>
         <?php
             $query =  array(
                 'category_name' => 'Footer',
