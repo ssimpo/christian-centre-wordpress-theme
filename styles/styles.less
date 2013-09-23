@@ -137,15 +137,28 @@ body {
                     text-decoration: none;
                     text-align: center;
                     font-size: 11px;
+                    line-height: 100%;
                     
                     &.green {
                         background-color: @green;
+                        &:hover {
+                            background-color: lighten(@green, 5%);
+                            .dropShadow(2px,2px);
+                        }
                     }
                     &.orange {
                         background-color: @orange;
+                        &:hover {
+                            background-color: lighten(@orange, 5%);
+                            .dropShadow(2px,2px);
+                        }
                     }
                     &.blue {
                         background-color: @blue;
+                        &:hover {
+                            background-color: lighten(@blue, 5%);
+                            .dropShadow(2px,2px);
+                        }
                     }
                     
                     div {
@@ -166,6 +179,7 @@ body {
 .mapDirectionsForm {
     border: @borderWidth solid @black;
     padding: @spacer;
+    .dropShadow(2px, 2px);
     
     table {
         caption, th {
@@ -217,7 +231,11 @@ body.green {
     }
     
     .mapDirectionsForm {
-        background-color: fadeout(lighten(@green,25%),15%);
+        background-color: fadeout(lighten(@green,25%),40%);
+    }
+    
+    .mapDirectionsForm:hover {
+        background-color: fadeout(lighten(@green,25%),10%);
     }
 }
 
@@ -235,7 +253,11 @@ body.orange {
     }
     
     .mapDirectionsForm {
-        background-color: fadeout(lighten(@orange,25%),15%);
+        background-color: fadeout(lighten(@orange,25%),40%);
+    }
+    
+    .mapDirectionsForm:hover {
+        background-color: fadeout(lighten(@orange,25%),10%);
     }
 }
 
@@ -253,7 +275,11 @@ body.blue {
     }
     
     .mapDirectionsForm {
-        background-color: fadeout(lighten(@blue,25%),15%);
+        background-color: fadeout(lighten(@blue,40%),15%);
+    }
+    
+    .mapDirectionsForm:hover {
+        background-color: fadeout(lighten(@blue,25%),10%);
     }
 }
 
