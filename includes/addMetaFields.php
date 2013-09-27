@@ -159,6 +159,32 @@ function RPRHAG_post_meta_colourField_box($object,$box) {?>
 		<label for="RPRHAG_post_order">Post Order:</label>
 		<br />
 		<input type="number" cass="postform" name="RPRHAG_post_order" id="RPRHAG_post_order" value="<?php echo $order; ?>" style="width:65px" />
+	</p><p>
+		<?php
+			$showArticle = get_post_meta( $object->ID, 'RPRHAG_post_show_article', true );
+			if($showArticle == ""){
+				$showArticle = "Yes";
+			}
+		?>
+		<label for="RPRHAG_post_show_article">Inclide &lt;article&gt;:</label>
+		<br />
+		<select id="RPRHAG_post_show_article" name="RPRHAG_post_show_article">
+			<option value="Yes"<?php echo (($showArticle == 'Yes')?' selected="selected"':''); ?>>Yes</option>
+			<option value="No"<?php echo (($showArticle == 'No')?' selected="selected"':''); ?>>No</option>
+		</select>
+	</p><p>
+		<?php
+			$showHeading = get_post_meta( $object->ID, 'RPRHAG_post_show_heading', true );
+			if($showHeading == ""){
+				$showHeading = "Yes";
+			}
+		?>
+		<label for="RPRHAG_post_show_heading">Inclide &lt;h1&gt;:</label>
+		<br />
+		<select id="RPRHAG_post_show_heading" name="RPRHAG_post_show_heading">
+			<option value="Yes"<?php echo (($showHeading == 'Yes')?' selected="selected"':''); ?>>Yes</option>
+			<option value="No"<?php echo (($showHeading == 'No')?' selected="selected"':''); ?>>No</option>
+		</select>
 	</p>
 <?php }
 
@@ -201,5 +227,7 @@ function RPRHAG_save_post_colourField( $post_id, $post ) {
 	RPRHAG_save_post_meta_field( $post_id, 'RPRHAG_background_colour');
 	RPRHAG_save_post_meta_field( $post_id, 'RPRHAG_metro_icon');
 	RPRHAG_save_post_meta_field( $post_id, 'RPRHAG_post_order');
+	RPRHAG_save_post_meta_field( $post_id, 'RPRHAG_post_show_heading');
+	RPRHAG_save_post_meta_field( $post_id, 'RPRHAG_post_show_article');
 }
 ?>
