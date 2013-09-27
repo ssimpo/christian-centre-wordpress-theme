@@ -25,6 +25,7 @@
             if(is_home() || is_front_page()){
                 if ($postType === 'post') {
                     if(in_category('Homepage')){
+                        if($postSeq > 0) { ?><hr /><?php }
                         get_template_part( 'content', $postType );
                         $postSeq++;
                     }
@@ -40,6 +41,7 @@
                         }
                         
                         if ($isInHompageCategory) {
+                            if($postSeq > 0) { ?><hr /><?php }
                             get_template_part( 'content', $postType );
                             echo get_post_format();
                             $postSeq++;
@@ -47,6 +49,7 @@
                     }
                 }
             }else{
+                if($postSeq > 0) { ?><hr /><?php }
                 get_template_part( 'content', $postType );
                 $postSeq++;
             }
