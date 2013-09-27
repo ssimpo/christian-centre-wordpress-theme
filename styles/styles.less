@@ -75,15 +75,17 @@ body {
         &>div>div.articles article {
             margin-bottom: @spacer*2;
             
-            h1.event-date-title {
-                margin-bottom: 0px;
+            h1 {
+                &.event-date-title, &.sermon-title {
+                    margin-bottom: 0px;
+                }
                 
                 a, a:hover {
                     color: @black;
                 }
             }
             
-            p.event-date-subtitle {
+            p.event-date-subtitle, p.sermon-subtitle {
                 .zeroSurrounds;
                 font-weight: bold;
                 font-size: 0.7em;
