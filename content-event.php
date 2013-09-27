@@ -13,7 +13,7 @@
 }?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header>
-        <h1 class="event-date-title"><?php the_title(); ?></h1>
+        <h1 class="event-date-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
         <p class="event-date-subtitle"><?php
             $current_occurance = eo_get_next_occurrence_of(get_the_ID());
             $start = $current_occurance['start']->format('jS M Y');
@@ -30,8 +30,9 @@
            
         ?></p>
     </header>
-    <?php the_content(); ?>
-    
+    <!--<?php the_content(); ?>-->
+    <?php the_excerpt(); ?>
+    <p><a href="<?php the_permalink(); ?>">[More details ...]</a></p>
     
     
     <footer>
