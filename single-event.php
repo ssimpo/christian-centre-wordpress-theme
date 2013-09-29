@@ -1,17 +1,17 @@
 <?php
-/*  Theme main content block
+/*  Theme index.php
  *  
  *  @author Stephen Simpson <me@simpo.org>
  *  @version v0.1
  */
 ?>
 <?php
-    global $postSeq, $RPRHAG_category;
+    get_header();
+    if ( have_posts() ) :
+    ?><div class="articles"><?php
+        while ( have_posts() ) : the_post();
 ?>
-<?php if(is_home() || is_front_page() || ($RPRHAG_category[0]->cat_ID === get_cat_ID('Homepage'))){
-    get_template_part( 'content', 'homepage' );
-}?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header>
         <h1 class="event-date-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
         <p class="event-date-subtitle"><?php
@@ -30,10 +30,16 @@
            
         ?></p>
     </header>
-    <?php the_excerpt(); ?>
-    <p><a href="<?php the_permalink(); ?>">[More details ...]</a></p>
-    
-    
+    <?php the_content(); ?>
     <footer>
     </footer>
 </article>
+<?php
+        endwhile;
+        ?></div><?php
+    else:
+?><p><?php _e('Sorry, no posts matched your criteria.'); ?></p><?php
+    endif;
+    
+    get_footer();
+?>
