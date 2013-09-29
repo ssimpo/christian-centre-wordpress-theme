@@ -55,6 +55,22 @@ body {
         margin:  auto;
         width: @bodyWidth+@sidebarWidth+(@spacer*3);
         
+        ul, ol {
+            .zeroSurrounds;
+            margin: @spacer;
+            margin-left: @spacer*3;
+        }
+        
+        h1, h2, h3, h4 {
+            .zeroSurrounds;
+            margin-top: @spacer*3;
+            margin-bottom: @spacer;
+        }
+        
+        h1, footer h2 {
+            margin-top: @spacer;
+        }
+        
         &>div{
             width: @bodyWidth;
             float: left;
@@ -72,9 +88,7 @@ body {
             }
         }
         
-        &>div>div.articles article {
-            margin-bottom: @spacer*2;
-            
+        article {
             h1 {
                 &.event-date-title, &.sermon-title {
                     margin-bottom: 0px;
@@ -91,6 +105,18 @@ body {
                 font-size: 0.7em;
                 margin-bottom: @spacer;
             }
+            
+            img.preacher {
+                .zeroSurrounds;
+                float: left;
+                margin-right: @spacer;
+                margin-bottom: @spacer;
+                border: @borderWidth solid @black;
+            }
+        }
+        
+        &>div>div.articles article {
+            margin-bottom: @spacer*2;
         }
         
         &>aside {
@@ -98,10 +124,13 @@ body {
             float: right;
             
             .aiwidgetscss {
+                .zeroSurrounds;
+                
                 .aiwidget-title {
-                    h3 {
+                    h2 {
                         .zeroSurrounds;
                         font-size: 1em;
+                        padding-top: @spacer;
                     }
                 }
                 
