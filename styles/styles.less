@@ -39,6 +39,17 @@ h2 {
     line-height: 1.2em;
 }
 
+a img {
+    border: none;
+}
+
+div.greybox {
+    border: @borderWidth solid @black;
+    padding: @spacer;
+    margin: @spacer;
+    background-color: @grey;
+}
+
 body {
     .zeroSurrounds;
     
@@ -351,6 +362,56 @@ body.blue {
     
     .mapDirectionsForm:hover {
         background-color: fadeout(lighten(@blue,25%),10%);
+    }
+}
+
+html.no-rgba {
+    body.green {
+        .main {
+            &>div>header, &>div>footer, &>div>div.articles, &>aside {
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@green,25%),15%)));
+            }
+        }
+        
+        .mapDirectionsForm {
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@green,25%),40%)));
+        }
+    
+        .mapDirectionsForm:hover {
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@green,25%),10%)));
+        }
+    }
+    
+    body.orange {
+        .main {
+            &>div>header, &>div>footer, &>div>div.articles, &>aside {
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@orange,25%),15%)));
+            }
+        }
+        
+        .mapDirectionsForm {
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@orange,25%),40%))); 
+        }
+    
+        .mapDirectionsForm:hover {
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@orange,25%),10%))); 
+        }
+    }
+    
+    body.blue {
+           .main {
+            &>div>header, &>div>footer, &>div>div.articles, &>aside {
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@blue,25%),15%)));
+            }
+        }
+        
+        .mapDirectionsForm {
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@blue,25%),15%))); 
+        }
+    
+        .mapDirectionsForm:hover {
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@blue,25%),10%))); 
+        } 
     }
 }
 
