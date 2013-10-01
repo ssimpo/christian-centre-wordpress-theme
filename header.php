@@ -6,27 +6,17 @@
  */
 ?>
 <!DOCTYPE html>
-<!--[if IE 6]>
-<html id="ie6"  xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://ogp.me/ns#" dir="ltr" lang="en-GB">
-<![endif]-->
-<!--[if IE 7]>
-<html id="ie7"  xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://ogp.me/ns#" dir="ltr" lang="en-GB">
-<![endif]-->
-<!--[if IE 8]>
-<html id="ie8"  xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://ogp.me/ns#" dir="ltr" lang="en-GB">
-<![endif]-->
-<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
 <html  xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://ogp.me/ns#" dir="ltr" lang="en-GB">
-<!--<![endif]-->
 <head>
     <!--[if lt IE 9]>
-        <script src="<?php echo get_template_directory_uri(); ?>scripts/html5shiv.js"></script>
-        <script src="<?php echo get_template_directory_uri(); ?>scripts/html5shiv-printshiv.js"></script>
+        <script src="<?php echo get_template_directory_uri(); ?>/scripts/html5shiv.js"></script>
+        <script src="<?php echo get_template_directory_uri(); ?>/scripts/html5shiv-printshiv.js"></script>
     <![endif]-->
     
-	<title><?php bloginfo('name'); ?> | <?php is_home() ? bloginfo('description') : wp_title(''); ?></title>
-	<link rel="shortcut icon" href="/favicon.ico">
-	
+    <title><?php bloginfo('name'); ?> | <?php is_home() ? bloginfo('description') : wp_title(''); ?></title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <?php include_once("includes/analyticstracking.php"); ?>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <?php wp_meta(); ?>
     <?php wp_head(); ?>
 </head>

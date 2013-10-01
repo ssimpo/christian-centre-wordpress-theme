@@ -5,7 +5,14 @@ function RPRHAG_script_config(){
         get_template_directory_uri().'/scripts/jsConfig.php',
         array()
     );
-   
+    wp_register_script(
+        'modernizr',
+        '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js',
+        array(),
+        '2.6.2'
+    );
+
+    wp_enqueue_script('modernizr');
     wp_enqueue_script('RPRHAGConfig');
 }
 
@@ -38,6 +45,6 @@ function RPRHAG_stylesheet_loader(){
 }
 
 add_action('wp_head', 'RPRHAG_stylesheet_loader', 5);  
-add_action('wp_head', 'RPRHAG_script_config', 2);
+add_action('wp_head', 'RPRHAG_script_config', 1);
 add_action('wp_head', 'RPRHAG_script_loader', 5);  
 ?>
