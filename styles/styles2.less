@@ -1,0 +1,538 @@
+@import "variables";
+@import "dbootstrap.css";
+
+.clear {
+    clear: both;
+    height: 1px;
+    width: 1px;
+}
+
+.left {
+    float: left;
+    margin: 0px;
+    margin-right: @spacer;
+    margin-bottom: @spacer;
+}
+
+.right {
+    float: left;
+    margin: 0px;
+    margin-left: @spacer;
+    margin-bottom: @spacer;
+}
+
+html {
+    width:100%;
+    .zeroSurrounds;
+    text-align:center;
+    height:100%;
+}
+
+h1 {
+    font-size: 1.4em;
+    line-height: 1.4em;
+    margin-bottom: @spacer;
+}
+
+h2 {
+    font-size: 1.2em;
+    line-height: 1.2em;
+}
+
+a img {
+    border: none;
+}
+
+div.greybox {
+    border: @borderWidth solid @black;
+    padding: @spacer;
+    margin: @spacer;
+    background-color: @grey;
+}
+
+body {
+    .zeroSurrounds;
+    
+    background-color: @grey;
+    background-repeat: no-repeat;
+    background-position: center 100px;
+    
+    text-align: left;
+    padding: @spacer;
+    font-family: 'Open Sans', sans-serif;
+    font-size: @mainFontSize;
+    
+    .main {
+        margin:  auto;
+        width: @bodyWidth+@sidebarWidth+(@spacer*3);
+        
+        ul, ol {
+            .zeroSurrounds;
+            margin: @spacer;
+            margin-left: @spacer*3;
+        }
+        
+        h1, h2, h3, h4 {
+            .zeroSurrounds;
+            margin-top: @spacer*3;
+            margin-bottom: @spacer;
+        }
+        
+        h1, footer h2 {
+            margin-top: @spacer;
+        }
+        
+        &>div{
+            width: @bodyWidth;
+            float: left;
+        }
+        
+        &>div>header, &>div>footer, &>div>div.articles, &>aside {
+            padding: @spacer;
+            margin-top: @spacer;
+            color: @black;
+            
+            hr {
+                .zeroSurrounds;
+                border-bottom: @borderWidth solid @black;
+                margin: @spacer;
+            }
+        }
+        
+        article {
+            h1 {
+                &.event-date-title, &.sermon-title {
+                    margin-bottom: 0px;
+                }
+                
+                a, a:hover {
+                    color: @black;
+                }
+            }
+            
+            p.event-date-subtitle, p.sermon-subtitle {
+                .zeroSurrounds;
+                font-weight: bold;
+                font-size: 0.7em;
+                margin-bottom: @spacer;
+            }
+            
+            img.preacher {
+                .zeroSurrounds;
+                float: left;
+                margin-right: @spacer;
+                margin-bottom: @spacer;
+                border: @borderWidth solid @black;
+            }
+        }
+        
+        &>div>div.articles article {
+            margin-bottom: @spacer*2;
+        }
+        
+        &>aside {
+            width: @sidebarWidth;
+            float: right;
+            
+            .aiwidgetscss {
+                .zeroSurrounds;
+                
+                .aiwidget-title {
+                    h2 {
+                        .zeroSurrounds;
+                        font-size: 1em;
+                        padding-top: @spacer;
+                    }
+                }
+                
+                .imgdisplay {
+                    clear: both;
+                    .zeroSurrounds;
+                    margin-top: @spacer;
+                    border-top: 1px solid @grey;
+                    padding-top: @spacer;
+                    
+                    font-size: 0.8em;
+                    
+                    img {
+                        .left;
+                        margin-bottom: floor(@spacer/2);
+                    }
+                    
+                    .tweetlink {
+                        margin-top: @spacer;
+                    }
+                }
+            }
+        }
+        
+        &>div>footer {
+            font-size: 0.9em;
+            
+            aside {
+                .map {
+                    position: relative;
+                    .left;
+                    width: @mapSize;
+                    height: @mapSize;
+                    border: 1px solid @black;
+                
+                    .simpoMapsGoogleCanvas {
+                        z-index: 1;
+                    }
+                }
+                
+                .find-us-block {
+                    .zeroSurrounds;
+                    margin-top: @spacer;
+                    float: left;
+                }
+            }
+        }
+        
+        &>div>header {
+            min-height: 180px;
+            
+            nav.metromenu {
+                height: 185px;
+                min-height: 186px;
+                max-height: 500px;
+                
+                a {
+                    display: block;
+                    position: relative;
+                }
+                
+                a.logo {
+                    padding-right: (@spacer*2)+1px;
+                    float: left;
+                    
+                }
+                
+                a.metro {
+                    width: 84px;
+                    height: 84px;
+                    float: left;
+                    margin: (@spacer/2)-1px;
+                    color: @black;
+                    font-weight: bold;
+                    text-decoration: none;
+                    text-align: center;
+                    font-size: 11px;
+                    line-height: 100%;
+                    
+                    &.green {
+                        background-color: @green;
+                        &:hover {
+                            background-color: lighten(@green, 5%);
+                            .dropShadow(2px,2px);
+                        }
+                    }
+                    &.orange {
+                        background-color: @orange;
+                        &:hover {
+                            background-color: lighten(@orange, 5%);
+                            .dropShadow(2px,2px);
+                        }
+                    }
+                    &.blue {
+                        background-color: @blue;
+                        &:hover {
+                            background-color: lighten(@blue, 5%);
+                            .dropShadow(2px,2px);
+                        }
+                    }
+                    
+                    div {
+                        margin-top: 53px;
+                        margin-right: @spacer;
+                        margin-left: @spacer;
+                    }
+                }
+            }
+        }
+    
+        &>div>div.articles {
+            min-height: 500px;
+        }
+    }
+}
+
+.mapDirectionsForm {
+    border: @borderWidth solid @black;
+    padding: @spacer;
+    .dropShadow(2px, 2px);
+    
+    table {
+        caption, th {
+            font-weight: bold;
+            text-align: left;
+            margin-bottom: @spacer;
+        }
+        
+        caption {
+            font-size: 1.3em;
+        }
+        
+        td, th {
+            font-size:0.8em;
+            vertical-align: bottom;
+        }
+    }
+    
+        
+    font-size:0.8em;
+    
+    .mapDirectionFormNotice {
+        color: @black;
+        font-weight: bold;
+        text-align: center;
+        font-size:1.2em;
+    }
+}
+
+#googleMapsDirectionDialog {
+    width: 550px;
+}
+
+#googleMapsDirectionDialogContent {
+    padding: @spacer;
+}
+
+body.green {
+    background-image: url('/wp-content/themes/RPRHAG/media/images/design/background/singer.png');
+    
+    a {
+        color: darken(@green, 25%);
+    }
+    
+    .main {
+        &>div>header, &>div>footer, &>div>div.articles, &>aside {
+            background-color: fadeout(lighten(@green,25%),15%);
+        }
+    }
+    
+    .mapDirectionsForm {
+        background-color: fadeout(lighten(@green,25%),40%);
+    }
+    
+    .mapDirectionsForm:hover {
+        background-color: fadeout(lighten(@green,25%),10%);
+    }
+}
+
+body.orange {
+    background-image: url('/wp-content/themes/RPRHAG/media/images/design/background/guitar.png');
+    
+    a {
+        color: darken(@orange, 25%);
+    }
+    
+    .main {
+        &>div>header, &>div>footer, &>div>div.articles, &>aside {
+            background-color: fadeout(lighten(@orange,25%),15%);
+        }
+    }
+    
+    .mapDirectionsForm {
+        background-color: fadeout(lighten(@orange,25%),40%);
+    }
+    
+    .mapDirectionsForm:hover {
+        background-color: fadeout(lighten(@orange,25%),10%);
+    }
+}
+
+body.blue {
+    background-image: url('/wp-content/themes/RPRHAG/media/images/design/background/worshipman.png');
+    
+    a {
+        color: darken(@blue, 25%);
+    }
+    
+    .main {
+        &>div>header, &>div>footer, &>div>div.articles, &>aside {
+            background-color: fadeout(lighten(@blue,25%),15%);
+        }
+    }
+    
+    .mapDirectionsForm {
+        background-color: fadeout(lighten(@blue,40%),15%);
+    }
+    
+    .mapDirectionsForm:hover {
+        background-color: fadeout(lighten(@blue,25%),10%);
+    }
+}
+
+html.no-rgba {
+    body.green {
+        .main {
+            &>div>header, &>div>footer, &>div>div.articles, &>aside {
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@green,25%),15%)));
+            }
+        }
+        
+        .mapDirectionsForm {
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@green,25%),40%)));
+        }
+    
+        .mapDirectionsForm:hover {
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@green,25%),10%)));
+        }
+    }
+    
+    body.orange {
+        .main {
+            &>div>header, &>div>footer, &>div>div.articles, &>aside {
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@orange,25%),15%)));
+            }
+        }
+        
+        .mapDirectionsForm {
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@orange,25%),40%))); 
+        }
+    
+        .mapDirectionsForm:hover {
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@orange,25%),10%))); 
+        }
+    }
+    
+    body.blue {
+           .main {
+            &>div>header, &>div>footer, &>div>div.articles, &>aside {
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@blue,25%),15%)));
+            }
+        }
+        
+        .mapDirectionsForm {
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@blue,25%),15%))); 
+        }
+    
+        .mapDirectionsForm:hover {
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(fadeout(lighten(@green,25%),15%)),endColorstr=argb(fadeout(lighten(@blue,25%),10%))); 
+        } 
+    }
+}
+
+.simpoSlideshow {
+	.zeroSurrounds;
+	
+    position: relative;
+	display: block;
+    
+    &.homepageSlideshow {
+        float: left;
+        margin-bottom: @spacer;
+        margin-right: @spacer;
+        border: @borderWidth solid @black;
+        width: 350px;
+        height: 350px;
+        background-image: url("/wp-content/themes/RPRHAG/media/images/slideshow/KayleighAndJosephine.jpg");
+    }
+	
+}
+
+div.hiddenDiv{
+    visibility:hidden;
+    position:absolute;
+    left:0px;
+    top:0px;
+    height:1px;
+    width:1px;
+    overflow:hidden;
+    z-index: -100;
+}
+
+.simpoExpandingDiv {
+    overflow: hidden;
+}
+
+body {
+    overflow: hidden;
+}
+
+header.mobileViewHeader {
+    position: absolute;
+    .zeroSurrounds;
+    left: 0px;
+    top: 0px;
+    height: 50px;
+    z-index: 3;
+    overflow: hidden;
+    background-color: @black;
+    border-bottom: @borderWidth solid @black;
+    
+    .dijitButton {
+        position: relative;
+        top: 12px;
+    }
+}
+
+aside.mobileViewSlideMenu {
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    overflow: visible;
+    background-color: @grey;
+}
+
+body>.main {
+    &>div>footer, &>aside, &>div>header {
+        display: none;
+    }
+    
+    &>div>.articles {
+        margin: 0px !important;
+        position: absolute;
+        left: 0px;
+        top: 50px;
+        z-index: 2;
+        overflow: visible;
+    }
+}
+
+.leftEdge {
+    border-left: @borderWidth solid @black;
+}
+
+ a.metro {
+                    width: 84px;
+                    height: 84px;
+                    float: left;
+                    margin: (@spacer/2)-1px;
+                    color: @black;
+                    font-weight: bold;
+                    text-decoration: none;
+                    text-align: center;
+                    font-size: 11px;
+                    line-height: 100%;
+                    
+                    &.green {
+                        background-color: @green;
+                        &:hover {
+                            background-color: lighten(@green, 5%);
+                            .dropShadow(2px,2px);
+                        }
+                    }
+                    &.orange {
+                        background-color: @orange;
+                        &:hover {
+                            background-color: lighten(@orange, 5%);
+                            .dropShadow(2px,2px);
+                        }
+                    }
+                    &.blue {
+                        background-color: @blue;
+                        &:hover {
+                            background-color: lighten(@blue, 5%);
+                            .dropShadow(2px,2px);
+                        }
+                    }
+                    
+                    div {
+                        margin-top: 53px;
+                        margin-right: @spacer;
+                        margin-left: @spacer;
+                    }
+                }
