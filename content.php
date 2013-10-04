@@ -22,11 +22,11 @@ $showHeading = get_post_meta(get_the_ID(), 'RPRHAG_post_show_heading', true);
 $showHeading = ((!$showHeading)?"Yes":$showHeading);
 
 if ($showArticle === "Yes") { ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('hentry'); ?>>
 <?php } ?>
     <header>
         <?php if ($showHeading === "Yes") { ?>
-        <h1><?php the_title(); ?></h1>
+        <h1 class="entry-title"><?php the_title(); ?></h1>
         <?php } ?>
     </header>
     <?php the_content(); ?>
