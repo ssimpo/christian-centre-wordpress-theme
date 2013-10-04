@@ -35,7 +35,7 @@ class RPRHAG_metroWalker extends Walker_Nav_Menu {
         $backgroundColour = get_post_meta($item->object_id, 'RPRHAG_background_colour', true);
         $backgroundColour = ((!$backgroundColour)?"green":$backgroundColour);
         $metroIcon = get_post_meta( $item->object_id, 'RPRHAG_metro_icon', true );
-        $metroIcon = ((!$metroIcon)?"apostolic":$metroIcon);
+        $metroIcon = ((!$metroIcon)?"home":$metroIcon);
         
 		$item_output = $args->before;
 		$item_output .= '<a'. $attributes .' class="'.$backgroundColour.' '.$metroIcon.' metro">';
