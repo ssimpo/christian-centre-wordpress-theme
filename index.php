@@ -9,6 +9,11 @@
     get_header();
     $postSeq = 0;
     ?><div class="articles"><?php
+
+    if(function_exists('the_breadcrumbs')) {
+        ?><span class="breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#"><?php the_breadcrumbs(); ?></span><?php
+    }
+
     if(is_home() || is_front_page() || in_category('Homepage')){
         query_posts(array(
             'orderby' => 'meta_value_num',
