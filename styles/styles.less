@@ -15,7 +15,7 @@
 }
 
 .right {
-    float: left;
+    float: right;
     margin: 0px;
     margin-left: @spacer;
     margin-bottom: @spacer;
@@ -245,8 +245,8 @@ body {
                     
                     div {
                         margin-top: 53px;
-                        margin-right: @spacer;
-                        margin-left: @spacer;
+                        margin-right: (@spacer/2);
+                        margin-left: (@spacer/2);
                     }
                 }
             }
@@ -256,6 +256,14 @@ body {
             min-height: 500px;
         }
     }
+}
+
+.breadcrumb {
+    font-size: 0.8em;
+    
+    a, a:visted, a:hoveer {
+        color: @black;
+    } 
 }
 
 .mapDirectionsForm {
