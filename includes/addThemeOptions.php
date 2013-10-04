@@ -54,7 +54,8 @@ function RPRHAG_get_default_theme_options() {
 			'apostolic'=>'apostolic',
 			'visiting'=>'visiting',
 			'church'=>'church',
-			'christianity'=>'christianity'
+			'christianity'=>'christianity',
+			'home'=>'home'
 		)
 	);
 	
