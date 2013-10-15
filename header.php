@@ -4,6 +4,8 @@
  *  @author Stephen Simpson <me@simpo.org>
  *  @version v0.1
  */
+
+$current_user = wp_get_current_user();
 ?>
 <!DOCTYPE html>
 <html  xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://ogp.me/ns#" dir="ltr" lang="en-GB">
@@ -15,6 +17,37 @@
     
     <title><?php bloginfo('name'); ?> | <?php is_home() ? bloginfo('description') : wp_title(''); ?></title>
     <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/touch-icon-iphone.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/touch-icon-ipad.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/touch-icon-iphone-retina.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/touch-icon-ipad-retina.png" />
+    <meta property="og:image" content="http://thechristiancentre.org.uk/logo500x500.png" />
+    <meta property="og:image:width" content="500" />
+    <meta property="og:image:height" content="500" />
+    <meta property="og:image" content="http://thechristiancentre.org.uk/logo300x300.png" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:image" content="http://thechristiancentre.org.uk/touch-icon-iphone.png" />
+    <meta property="og:image:width" content="60" />
+    <meta property="og:image:height" content="60" />
+    <meta property="og:image" content="http://thechristiancentre.org.uk/touch-icon-ipad.png" />
+    <meta property="og:image:width" content="72" />
+    <meta property="og:image:height" content="72" />
+    <meta property="og:image" content="http://thechristiancentre.org.uk/touch-icon-iphone-retina.png" />
+    <meta property="og:image:width" content="120" />
+    <meta property="og:image:height" content="120" />
+    <meta property="og:image" content="http://thechristiancentre.org.uk/touch-icon-ipad-retina.png" />
+    <meta property="og:image:width" content="152" />
+    <meta property="og:image:height" content="152" />
+    <script type="text/javascript">
+        var user = {
+            "username":"<?php echo (($current_user->ID != 0)?$current_user->user_login:"anonymous"); ?>",
+            "firstname":"<?php echo (($current_user->ID != 0)?$current_user->user_firstname:"unknown"); ?>",
+            "lastname":"<?php echo (($current_user->ID != 0)?$current_user->user_lastname:"unknown"); ?>",
+            "displayname":"<?php echo (($current_user->ID != 0)?$current_user->display_name:"unknown"); ?>",
+            "email":"<?php echo $current_user->user_email; ?>",
+        };
+    </script>
     <?php include_once("includes/analyticstracking.php"); ?>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <?php wp_meta(); ?>
