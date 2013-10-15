@@ -118,7 +118,7 @@ function the_breadcrumbs() {
     } elseif ( is_attachment() ) {  
       $parent = get_post($parent_id);  
       $cat = get_the_category($parent->ID); $cat = $cat[0];  
-      $cats = get_category_parents($cat, TRUE, $delimiter);  
+      $cats = get_category_parents($cat, TRUE, $delimiter);
       $cats = str_replace('<a', $link_before . '<a' . $link_attr, $cats);  
       $cats = str_replace('</a>', '</a>' . $link_after, $cats);  
       if ($show_title == 0) $cats = preg_replace('/ title="(.*?)"/', '', $cats);  
