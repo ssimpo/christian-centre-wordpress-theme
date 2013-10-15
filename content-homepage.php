@@ -9,23 +9,17 @@
 <?php if ($postSeq === 0){?>
 <div
 	data-dojo-type="simpo/widget/slideshow"
-	data-dojo-props="src:[
-		themePath+'/media/images/slideshow/KayleighAndJosephine.jpg',
-	    themePath+'/media/images/slideshow/LukeGreen.jpg',
-		themePath+'/media/images/slideshow/MiddlesbroughCollege.jpg',
-	    themePath+'/media/images/slideshow/Banners.jpg',
-		themePath+'/media/images/slideshow/Luke.jpg',
-		themePath+'/media/images/slideshow/BottleOfNotes.jpg',
-	    themePath+'/media/images/slideshow/ChrisAndEloise.jpg',
-		themePath+'/media/images/slideshow/Kids.jpg',
-	    themePath+'/media/images/slideshow/Geoff.jpg',
-	    themePath+'/media/images/slideshow/Coffee.jpg',
-		themePath+'/media/images/slideshow/GeoffTea.jpg',
-	    themePath+'/media/images/slideshow/Stephen.jpg',
-		themePath+'/media/images/slideshow/Mal.jpg',
-		themePath+'/media/images/slideshow/MiddlesbroughCollegeSign.jpg',
-	    themePath+'/media/images/slideshow/Sarah.jpg'
-	], type:'squares', squaresSize:36, interval:2500"
+	data-dojo-props="src:[<?php
+			$slideShowIds = array(
+				526,544,543,521,528,522,524,529,525,523,527,531,545,542,530
+			);
+			
+			for($i = 0; $i < count($slideShowIds); $i++) {
+				$slideShowIds[$i] = "'" . wp_get_attachment_url($slideShowIds[$i]) . "'";
+			}
+			
+			echo implode(',', $slideShowIds);
+	?>], type:'squares', squaresSize:36, interval:2500"
 	class="simpoSlideshow homepageSlideshow"
 ></div>
 <?php } ?>
