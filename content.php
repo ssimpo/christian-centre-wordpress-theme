@@ -23,17 +23,12 @@ $showHeading = ((!$showHeading)?"Yes":$showHeading);
 
 if ($showArticle === "Yes") { ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemtype="http://schema.org/Article">
-<!--<?php
-echo get_post_type( get_the_ID() );
-echo get_the_author_meta('display_name');
-
-?>-->
 <?php } ?>
     <header>
         <?php if ($showHeading === "Yes") { ?>
         <h1 itemprop="name"><?php the_title(); ?></h1>
-        <?php if (get_post_type(get_the_ID()) == "post"){
-            ?><span class="sml" style="font-size:0.8em"><b>Author:</b> <a href="/authors/<?php echo str_replace(' ', '-', strtolower(get_the_author_meta('display_name'))); ?>" rel=author" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name"><?php echo get_the_author_meta('display_name'); ?><span></a></span><?php
+        <?php if ((get_post_type(get_the_ID()) == "post") && (!is_home()) && (!is_front_page() )){
+            ?><span class="author-link"><strong>Author:</strong> <?php echo rprhag::getAuthorLink(); ?></span><?php
         }
         ?>
         <?php } ?>
