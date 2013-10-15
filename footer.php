@@ -39,6 +39,7 @@
 		<div class="clear">&nbsp;</div>
 	</aside>
     <?php wp_footer(); ?>
+    <?php include_once("includes/piwiktracking.php"); ?>
 </footer>
 </div>
 <?php get_sidebar(); ?>
