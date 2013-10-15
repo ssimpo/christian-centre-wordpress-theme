@@ -15,7 +15,7 @@
     <header>
         <h1 class="event-date-title entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
         <p class="event-date-subtitle"><?php
-            $current_occurance = eo_get_next_occurrence_of(get_the_ID());
+            /*$current_occurance = eo_get_next_occurrence_of(get_the_ID());
             $start = $current_occurance['start']->format('jS M Y');
             $end = $current_occurance['end']->format('jS M Y');
             $htmlStartTime = $current_occurance['start']->format('Y-m-d G:i:s');
@@ -28,7 +28,7 @@
                 $endTime = $current_occurance['end']->format('g:ia');
                 
                 echo '<time datetime="'.$htmlStartTime.'">' . $start . ' ' . $startTime . '</time>-<time datetime="'.$htmlEndTime.'">' . $endTime . '</time>';
-            }
+            }*/
            
         ?></p>
     </header>
