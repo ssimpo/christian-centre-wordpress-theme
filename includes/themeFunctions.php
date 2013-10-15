@@ -1,7 +1,21 @@
 <?php
 class rprhag {
+    public static function getCreatedModifiedHtml() {
+        $created = get_the_date('jS M Y');
+        $modified = get_the_modified_date('jS M Y');
+        
+        $html = '<span class="created-date"><strong>Created:</strong> <time datetime="'.get_the_date('Y-m-d H:i').'" itemprop="dateCreated">'.$created.'</time></span>';
+        if( $created != $modified) {
+            $html .= ' (<span class="modified-date"><strong>Modified:</strong> <time datetime="'.get_the_modified_date('Y-m-d H:i').'" itemprop="dateModified">'.$modified.'</time></span>)';
+        }
+        
+        return $html;
+    }
+    
     public static function getAuthorLink() {
         $authorName = get_the_author_meta('display_name');
+        
+        
         
         if (self::checkAuthorHasPage($authorName)) {
             $authorPermalink = self::getAuthorPermalink($authorName);
