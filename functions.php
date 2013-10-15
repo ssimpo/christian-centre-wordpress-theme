@@ -186,6 +186,7 @@ add_theme_support( 'automatic-feed-links' );
 // to output valid HTML5.
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
 
+require_once( get_template_directory() . '/includes/themeFunctions.php' );
 require_once( get_template_directory() . '/includes/addThemeOptions.php' );
 require_once( get_template_directory() . '/includes/addMetaFields.php' );
 require_once( get_template_directory() . '/includes/widgetSupport.php' );
