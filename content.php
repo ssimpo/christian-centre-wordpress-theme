@@ -28,7 +28,7 @@ if ($showArticle === "Yes") { ?>
         <?php if ($showHeading === "Yes") { ?>
         <h1 itemprop="name"><?php the_title(); ?></h1>
         <?php if ((get_post_type(get_the_ID()) == "post") && (!is_home()) && (!is_front_page() )){
-            ?><span class="author-link"><strong>Author:</strong> <?php echo rprhag::getAuthorLink(); ?></span><?php
+            ?><span class="author-link"><strong>Author:</strong> <?php echo rprhag::getAuthorLink(); ?></span> - <?php echo rprhag::getCreatedModifiedHtml();
         }
         ?>
         <?php } ?>
