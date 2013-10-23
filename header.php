@@ -72,7 +72,7 @@ $backgroundColour = ((!$backgroundColour)?"green":$backgroundColour);
 	<nav
 		class="metromenu simpoExpandingDiv"
 		data-dojo-type="simpo/widget/expandingDiv"
-	><span itemscope itemtype="http://schema.org/Organization" itemref="tcc-org"><a href="<?php echo home_url();?>" class="logo" itemprop="url"><img src="<?php echo get_template_directory_uri(); ?>/media/images/logos/tcc-black.png" width="255" height="117" class="logo" alt="The Christian Centre Logo" itemprop="logo" /></a><meta itemprop="name" content="The Christian Centre, Middlesbrough" /></span>
+	><span itemscope itemtype="http://schema.org/Organization" itemref="tcc-org"><a href="<?php echo home_url();?>" class="logo" itemprop="url"><img src="<?php echo get_template_directory_uri(); ?>/media/images/logos/tcc-black.png" width="255" height="117" class="logo" alt="The Christian Centre Logo" itemprop="logo" /></a><meta itemprop="name" content="The Christian Centre" /></span>
 		<?php
 			$metroMenu =  wp_nav_menu(array(
 				'theme_location' => 'metro',

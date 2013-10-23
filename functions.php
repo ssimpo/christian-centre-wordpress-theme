@@ -29,6 +29,20 @@ if(!function_exists('console')){
 	}
 }
 
+add_action( 'pre_get_posts', 'RPRHAG_requery' );   
+function RPRHAG_requery($query){
+    if ((!is_admin()) && ($query->is_main_query())) {
+        if ($query->is_home()) {
+            $query->set('orderby', 'meta_value_num');
+            $query->set('meta_key', 'RPRHAG_post_order');
+            $query->set('order', 'ASC');
+            $query->set('posts_per_page', 100);
+            $query->set('post_type', array('post','event'));
+            $query->set('cat', 'Homepage');
+        }
+    }
+}
+
 function the_breadcrumbs() {  
   
   /* === OPTIONS === */  

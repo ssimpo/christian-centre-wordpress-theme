@@ -14,15 +14,6 @@
         ?><span class="breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#"><?php the_breadcrumbs(); ?></span><?php
     }
 
-    if(is_home() || is_front_page() || in_category('Homepage')){
-        query_posts(array(
-            'orderby' => 'meta_value_num',
-            'meta_key' => 'RPRHAG_post_order',
-            'order' => 'ASC',
-            'posts_per_page' => 8,
-            'post_type' => array('post','event')
-        ));
-    }
     if ( have_posts() ) :
         while ( have_posts() ) : the_post();
             $postType = get_post_type(get_the_ID());
@@ -40,7 +31,7 @@
                         $isInHompageCategory = false;
                         
                         foreach ($categories as $category) {
-                            if($category->name === 'Homepage') {
+                            if(strtolower($category->name) === 'homepage') {
                                 $isInHompageCategory = true;
                             }
                         }
